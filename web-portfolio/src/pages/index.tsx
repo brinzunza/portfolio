@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Github, Linkedin, Mail, Menu, Radius, X } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import SkillCard from '../components/SkillCard';
 import ProjectCard from '../components/ProjectCard';
 
@@ -9,7 +9,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white text-gray-800"> 
-    
       {/* Navigation */}
       <nav className="bg-white shadow-md ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,7 +57,7 @@ export default function Home() {
               <h1 className="text-4xl font-bold mb-4">Bruno Inzunza</h1>
               <h2 className="text-2xl text-gray-600 mb-4">Software Engineer & Data Scientist</h2>
               <p className="text-lg text-gray-700">
-              College and self-taught student focused on <strong>Software, Data, and Investing</strong>. Currently working on frontend, backend, database, trading, and machine learning technologies.
+              College and self-taught engineer focused on <strong>Software, Data, and Investing</strong>. Currently working on frontend, backend, database, trading, and machine learning technologies.
               </p>
             </div>
           </div>
@@ -81,36 +80,42 @@ export default function Home() {
             <ProjectCard 
               title="Algorithmic Trading" 
               description="Developed a sophisticated algorithmic trading system that utilizes technical analysis techniques to analyze market trends and execute trades automatically, resulting in a consistent increase versus S&P500."
+              technologies={['Python']} 
               githubLink="https://github.com/brinzunza/bat" 
               liveDemoLink="https://github.com/brinzunza/BAT/blob/main/meanReversion.ipynb" 
             />
             <ProjectCard 
               title="MERN Blog" 
               description="Created a full-stack blog application using the MERN stack (MongoDB, Express, React, Node.js), featuring user authentication, real-time posts, and a responsive design that enhances user engagement."
+              technologies={['MongoDB', 'Express', 'React', 'Node.js']} 
               githubLink="https://github.com/brinzunza" 
               liveDemoLink="https://github.com/brinzunza" 
             />
             <ProjectCard 
               title="LeetCode Clone" 
               description="Built a clone of the popular coding platform LeetCode, allowing users to practice coding problems, track their progress, and practice debugging issues, all while providing a seamless user experience."
+              technologies={['React', 'Firebase', 'Node.js']} 
               githubLink="https://github.com/brinzunza" 
               liveDemoLink="https://github.com/brinzunza" 
             />
             <ProjectCard 
               title="Speed Typing Test" 
               description="Designed an interactive speed typing test application that challenges users to improve their typing speed and accuracy through a timed exercise, complete with performance analytics and random text generation."
+              technologies={['Javascript']} 
               githubLink="https://github.com/brinzunza/Typing_test" 
               liveDemoLink="https://justtyping.netlify.app" 
             />
             <ProjectCard 
               title="Image Classification" 
               description="Developed an image classification application using machine learning techniques, enabling users to upload custom input and receive instant feedback on the classification results."
+              technologies={['Python']} 
               githubLink="https://github.com/brinzunza/OCR" 
               liveDemoLink="https://github.com/brinzunza/OCR/blob/main/ocr.py" 
             />
             <ProjectCard 
               title="F1 Visualization Dashboard" 
               description="Created a dynamic dashboard for visualizing Formula 1 race data, allowing users to explore race statistics, driver performance, and team standings through interactive charts and graphs."
+              technologies={['Python', 'Flask']} 
               githubLink="https://github.com/brinzunza" 
               liveDemoLink="https://github.com/brinzunza" 
             />
