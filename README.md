@@ -1,2 +1,2 @@
-# Personal Portfolio (https://brunoinzunza.vercel.app/)
+# Personal Portfolio (https://brunoinzunza.com)
  
