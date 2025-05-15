@@ -1,39 +1,72 @@
-import React from 'react';
+import { Github, ExternalLink } from 'lucide-react';
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  technologies: string[]; 
-  githubLink: string; 
-  liveDemoLink: string; 
+  technologies: string[];
+  githubLink: string;
+  liveDemoLink: string;
+  image: string;
+  gif: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, githubLink, liveDemoLink, technologies }) => {
+export default function ProjectCard({ 
+  title, 
+  description, 
+  technologies, 
+  githubLink, 
+  liveDemoLink,
+  image,
+  gif
+}: ProjectCardProps) {
   return (
-    <div className="bg-white shadow-md rounded-lg p-6 border border-gray-200">
-      <h3 className="text-xl font-semibold mb-2">{title}</h3>
-      <p className="text-gray-700 mb-4">{description}</p>
-      <div className="flex flex-wrap gap-2 mb-2"> {}
-        {technologies.map((tech, index) => (
-          <p key={index} className="bg-gray-100 text-gray-600 px-2 py-1 rounded inline-block">
-            {tech}
-          </p>
-        ))}
+    <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-100">
+      <div className="relative group">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-48 object-cover"
+        />
+        <img 
+          src={gif} 
+          alt={`${title} demo`} 
+          className="absolute inset-0 w-full h-48 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        />
       </div>
-      <div className="flex space-x-2"> 
-        <a href={githubLink} target="_blank" rel="noopener noreferrer">
-          <button className="bg-gray-100 text-green-600 px-3 py-1 rounded hover:bg-gray-50">
-            GitHub
-          </button>
-        </a>
-        <a href={liveDemoLink} target="_blank" rel="noopener noreferrer">
-          <button className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-400">
-            Live Demo
-          </button>
-        </a>
+      <div className="p-6">
+        <h3 className="text-xl font-medium mb-2 text-gray-900">{title}</h3>
+        <p className="text-gray-500 mb-4 text-sm leading-relaxed">{description}</p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {technologies.map((tech, index) => (
+            <span 
+              key={index} 
+              className="px-3 py-1 bg-gray-50 text-gray-600 text-xs rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        <div className="flex space-x-4">
+          <a 
+            href={githubLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-900 transition-colors duration-200 flex items-center text-sm"
+          >
+            <Github size={16} className="mr-1" />
+            Code
+          </a>
+          <a 
+            href={liveDemoLink} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-900 transition-colors duration-200 flex items-center text-sm"
+          >
+            <ExternalLink size={16} className="mr-1" />
+            Demo
+          </a>
+        </div>
       </div>
     </div>
   );
-};
-
-export default ProjectCard;
+}
