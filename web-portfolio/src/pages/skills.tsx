@@ -4,8 +4,12 @@ export default function Skills() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-32">
-        <h1 className="text-4xl font-medium mb-16 text-gray-900 text-center">Skills</h1>
+      <main className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="min-h-[40vh] flex items-center justify-center">
+          <h1 className="text-3xl font-light tracking-tight text-gray-900 sm:text-4xl text-center">
+            SKILLS
+          </h1>
+        </div>
         
         <div className="max-w-xl mx-auto">
           <div className="space-y-2">
