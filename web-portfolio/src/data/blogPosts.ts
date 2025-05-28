@@ -23,9 +23,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     id: '3',
-    title: 'Freedom of Thought',
-    date: 'May 22, 2025',
-    preview: 'You have the freedom of thought, but some thoughts should not be freed.',
-    content: 'Thinking is the truest nature of humans. It is what fundamentally differentiates us from other living things. Our sophistication in thought is what has innovated nearly every technology that exists today. '
+    title: 'Fluctuations',
+    date: 'November 19, 2024',
+    preview: 'The bad vs the good and how to balance them.',
+    content: 'Having bad and good is part of a quality life. Smelling, seeing, hearing, felling all have good parts and bad parts. Would you like to get rid of them completely to get rid of bad parts? Would you get rid of your nose so that you never have to smell anything bad again? Would you get rid of your hands so that you never have to feel something painful again? Would you get rid of your eyes so that you never have to see something bad again? Would you get rid of your tongue so that you never have to taste anything bad again? No. There is a balance to them. Many people believe that we should get rid of pleasures and pains, but in reality they are part of this balance. Of course, sometimes that balance can become uneven, but this does not mean to get rid of them completely. '
   }
 ]; 
