@@ -13,28 +13,28 @@ const projects = [
     title: 'practice debugging',
     description: 'developed a web-based platform that allows developers to practice and enhance debugging skills by solving simulated problems.',
     code: 'https://github.com/brinzunza/PracticeDebugging.com',
-    gif: '/trading-bot.gif',
+    gif: '/temp.gif',
     tech: ['react', 'next', 'mongodb'],
   },
   {
     title: 'laliga analysis and predictor',
     description: 'built a sports analysis tool using web scraping to gather and aggregate raw data on la liga teams and match statistics.',
     code: 'https://github.com/brinzunza/laligaml',
-    gif: '/trading-bot.gif',
+    gif: '/temp.gif',
     tech: ['python', 'web-scraping', 'data science'],
   },
   {
     title: 'salary management system',
     description: 'created a full-stack application for managing employee salaries, including payroll processing, tax calculations, and reporting.',
     code: 'https://github.com/brinzunza/salary-management',
-    gif: '/trading-bot.gif',
+    gif: '/temp.gif',
     tech: ['java', 'spring boot', 'react'],
   },
   {
     title: 'machine learning from scratch',
     description: 'implemented core machine learning algorithms from scratch, with detailed documentation and examples.',
     code: 'https://github.com/brinzunza/machine-learning-from-scratch',
-    gif: '/trading-bot.gif',
+    gif: '/temp.gif',
     tech: ['python', 'mathematics'],
   },
 ];
@@ -80,7 +80,7 @@ export default function Projects() {
 
         {/* Floating GIF container */}
         <div 
-          className={`fixed left-4 top-1/2 -translate-y-1/2 w-96 h-72 rounded-lg shadow-lg overflow-hidden transition-all duration-300 z-40 ${
+          className={`fixed left-4 top-1/2 -translate-y-1/2 inline-block rounded-lg shadow-lg overflow-hidden transition-all duration-300 z-40 ${
             hoveredProject ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'
           }`}
         >
@@ -88,7 +88,7 @@ export default function Projects() {
             <img 
               src={projects.find(p => p.title === hoveredProject)?.gif}
               alt={`${hoveredProject} demo`} 
-              className="w-full h-full object-cover"
+              className="max-w-[24rem] max-h-[18rem] object-contain"
             />
           )}
         </div>

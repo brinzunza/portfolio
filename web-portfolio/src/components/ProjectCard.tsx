@@ -70,7 +70,7 @@ export default function ProjectCard({
         <img 
           src={gif} 
           alt={`${title} demo`} 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
         />
       </div>
     </>
