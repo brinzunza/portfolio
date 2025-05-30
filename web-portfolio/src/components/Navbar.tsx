@@ -41,12 +41,12 @@ export default function Navbar() {
             >
               SKILLS
             </Link>
-            <Link 
+            {/* <Link 
               href="/blog" 
               className={`${isActive('/blog') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
               BLOG
-            </Link>
+            </Link> */}
           </div>
           <div className="md:hidden flex items-center">
             <button 
@@ -80,12 +80,12 @@ export default function Navbar() {
             >
               PROJECTS
             </Link>
-            <Link 
+            {/* <Link 
               href="/blog" 
               className={`block ${isActive('/blog') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
               BLOG
-            </Link>
+            </Link> */}
           </div>
         </div>
       )}
