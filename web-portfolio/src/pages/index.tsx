@@ -25,7 +25,7 @@ export default function Home() {
 
           <div className="mt-12 flex flex-col items-center">
             <p className="text-sm text-gray-500 sm:mx-auto md:text-base text-center max-w-md">
-              college and self-taught engineer focused on <span className="font-medium text-gray-700">software, data, and investing</span>. currently working on frontend, backend, database, trading, and machine learning technologies.
+              college and self-taught engineer focused on <span className="font-medium text-gray-700">software, data, and investing</span>. currently working on frontend, backend, database, computer vision, trading, and machine learning technologies.
             </p>
           </div>
 

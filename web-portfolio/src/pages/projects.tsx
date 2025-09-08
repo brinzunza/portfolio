@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const projects = [
   {
-    title: 'algorithmic trading',
+    title: 'bruninvestor algorithmic trading',
     description: 'designed and implemented an algorithmic trading system. fully backtested with custom strategies.',
     code: 'https://github.com/brinzunza/BAT',
     gif: '/at.gif',
@@ -12,30 +12,23 @@ const projects = [
   {
     title: 'practice debugging',
     description: 'developed a web-based platform that allows developers to practice and enhance debugging skills by solving simulated problems.',
-    code: 'https://github.com/brinzunza/PracticeDebugging.com',
+    code: 'https://github.com/brinzunza/',
     gif: '/pd.gif',
     tech: ['react', 'next', 'mongodb'],
   },
   {
-    title: 'laliga analysis and predictor',
-    description: 'built a sports analysis tool using web scraping to gather and aggregate raw data on la liga teams and match statistics.',
-    code: 'https://github.com/brinzunza/laligaml',
-    gif: '/la.gif',
-    tech: ['python', 'web-scraping', 'data science'],
+    title: 'rag chatbot',
+    description: 'developed a retrieval-augmented generation (rag) chatbot capable of answering questions from specified documents.',
+    code: 'https://github.com/brinzunza/',
+    gif: '/rag.gif',
+    tech: ['python', 'langchain', 'llm'],
   },
   {
-    title: 'salary management system',
-    description: 'created a full-stack application for managing employee salaries, including payroll processing, tax calculations, and reporting.',
-    code: 'https://github.com/brinzunza/salary-management',
-    gif: '/sm.gif',
-    tech: ['java', 'spring boot', 'react'],
-  },
-  {
-    title: 'machine learning from scratch',
-    description: 'implemented core machine learning algorithms from scratch, with detailed documentation and examples.',
-    code: 'https://github.com/brinzunza/machine-learning-from-scratch',
-    gif: '/ml.gif',
-    tech: ['python', 'mathematics'],
+    title: 'mixed reality debate assistant',
+    description: 'created a real-time debate assistant leveraging mixed reality for immersive and interactive argumentation analysis.',
+    code: 'https://github.com/brinzunza/',
+    gif: '/mrda.gif',
+    tech: ['VR/AR'],
   },
 ];
 

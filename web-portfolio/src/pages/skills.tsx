@@ -15,11 +15,7 @@ export default function Skills() {
           <div className="space-y-2">
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-gray-900">Python</span>
-              <span className="text-sm text-gray-500">Data Analysis, ML, Web</span>
-            </div>
-            <div className="flex items-center justify-between py-2 border-b border-gray-100">
-              <span className="text-gray-900">JavaScript</span>
-              <span className="text-sm text-gray-500">React, Next.js, TypeScript</span>
+              <span className="text-sm text-gray-500">Data Analysis, ML</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-gray-900">SQL</span>
@@ -43,31 +39,23 @@ export default function Skills() {
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-gray-900">DevOps</span>
-              <span className="text-sm text-gray-500">Git, Docker, AWS</span>
+              <span className="text-sm text-gray-500">Git, Docker</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-gray-900">Machine Learning</span>
-              <span className="text-sm text-gray-500">Scikit-learn, TensorFlow</span>
+              <span className="text-sm text-gray-500">Scikit-learn, LangChain, LLM, Hugging Face</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-gray-900">Data Analysis</span>
-              <span className="text-sm text-gray-500">Pandas, NumPy</span>
+              <span className="text-sm text-gray-500">Pandas, NumPy, SciPy, Matplotlib, Seaborn</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-gray-900">Data Visualization</span>
               <span className="text-sm text-gray-500">Matplotlib, Seaborn</span>
             </div>
             <div className="flex items-center justify-between py-2 border-b border-gray-100">
-              <span className="text-gray-900">Big Data</span>
-              <span className="text-sm text-gray-500">Apache Spark</span>
-            </div>
-            <div className="flex items-center justify-between py-2 border-b border-gray-100">
               <span className="text-gray-900">Algorithmic Trading</span>
-              <span className="text-sm text-gray-500">Strategy Development</span>
-            </div>
-            <div className="flex items-center justify-between py-2 border-b border-gray-100">
-              <span className="text-gray-900">Financial Analysis</span>
-              <span className="text-sm text-gray-500">Market Research</span>
+              <span className="text-sm text-gray-500">Strategy Development, Backtesting</span>
             </div>
           </div>
         </div>
