@@ -1,89 +1,195 @@
+import { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm';
 import Navbar from '../components/Navbar';
-import { useState } from 'react';
 
 const projects = [
   {
+    id: '1',
     title: 'bruninvestor algorithmic trading',
     description: 'designed and implemented an algorithmic trading system. fully backtested with custom strategies.',
     code: 'https://github.com/brinzunza/BAT',
     gif: '/at.gif',
     tech: ['python', 'trading'],
+    readmeFile: '/batreadme.md',
   },
   {
+    id: '2',
     title: 'practice debugging',
     description: 'developed a web-based platform that allows developers to practice and enhance debugging skills by solving simulated problems.',
-    code: 'https://github.com/brinzunza/',
+    code: 'https://github.com/brinzunza/practicedebugging',
     gif: '/pd.gif',
     tech: ['react', 'next', 'mongodb'],
+    readmeFile: '/pdreadme.md',
   },
   {
+    id: '3',
     title: 'rag chatbot',
-    description: 'developed a retrieval-augmented generation (rag) chatbot capable of answering questions from specified documents.',
-    code: 'https://github.com/brinzunza/',
+    description: 'developed a retrieval-augmented generation (rag) chatbot capable of answering questions from any pdf documents.',
+    code: 'https://github.com/brinzunza/ragchatbot',
     gif: '/rag.gif',
     tech: ['python', 'langchain', 'llm'],
+    readmeFile: '/ragreadme.md',
   },
   {
+    id: '4',
     title: 'mixed reality debate assistant',
     description: 'created a real-time debate assistant leveraging mixed reality for immersive and interactive argumentation analysis.',
     code: 'https://github.com/brinzunza/',
     gif: '/mrda.gif',
     tech: ['VR/AR'],
+    readmeFile: null,
   },
 ];
 
 export default function Projects() {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState(projects[0]);
+  const [readmeContent, setReadmeContent] = useState('');
+
+  useEffect(() => {
+    const fetchReadme = async () => {
+      if (selectedProject.readmeFile) {
+        try {
+          const response = await fetch(selectedProject.readmeFile);
+          const content = await response.text();
+          setReadmeContent(content);
+        } catch (error) {
+          console.error('Error fetching readme:', error);
+          setReadmeContent('readme content could not be loaded.');
+        }
+      } else {
+        setReadmeContent('readme content will be added later for this project...');
+      }
+    };
+
+    fetchReadme();
+  }, [selectedProject]);
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <main className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="min-h-[40vh] flex items-center justify-center">
-          <h1 className="text-3xl font-light tracking-tight text-gray-900 sm:text-4xl text-center">
-            PROJECTS
-          </h1>
-        </div>
-        <div className="divide-y divide-gray-200">
-          {projects.map((project, idx) => (
-            <div key={project.title} className={"py-10" + (idx === 0 ? "" : "")}>
-              <div className="flex items-center justify-between">
-                <h2 
-                  className="text-2xl font-mono font-normal tracking-wide text-gray-900 cursor-pointer hover:text-gray-600 transition-colors hover:underline"
-                  onMouseEnter={() => setHoveredProject(project.title)}
-                  onMouseLeave={() => setHoveredProject(null)}
+      <main className="flex h-screen pt-16 max-w-6xl mx-auto px-8">
+        {/* Left side - Project titles */}
+        <div className="w-1/3 border-r border-gray-200 overflow-y-auto pr-8">
+          <div className="py-8">
+            <h1 className="text-xl font-light tracking-tight text-gray-900 mb-8">
+              PROJECTS
+            </h1>
+            <div className="space-y-4">
+              {projects.map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => setSelectedProject(project)}
+                  className={`cursor-pointer transition-colors duration-200 ${
+                    selectedProject.id === project.id
+                      ? 'text-gray-900'
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
                 >
-                  {project.title}
-                </h2>
-                <div className="flex space-x-4">
-                  <a href={project.code} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-500 hover:text-gray-900 font-medium">Code</a>
+                  <h2 className="text-sm font-medium lowercase hover:underline">
+                    {project.title.toLowerCase()}
+                  </h2>
                 </div>
-              </div>
-              <p className="mt-2 text-gray-500 text-base">{project.description}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.tech.map((tech) => (
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right side - Project readme content */}
+        <div className="w-2/3 overflow-y-auto pl-8">
+          <div className="py-8">
+            <h1 className="text-2xl font-medium text-gray-900 mb-4">
+              {selectedProject.title}
+            </h1>
+            <div className="mb-6">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {selectedProject.tech.map((tech) => (
                   <span key={tech} className="px-3 py-1 text-xs font-mono bg-gray-100 text-gray-600 rounded-full">
                     {tech}
                   </span>
                 ))}
               </div>
+              <a
+                href={selectedProject.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-500 hover:text-gray-900 font-medium"
+              >
+                code
+              </a>
             </div>
-          ))}
-        </div>
-
-        {/* Floating GIF container */}
-        <div 
-          className={`fixed left-4 top-1/2 -translate-y-1/2 inline-block rounded-lg shadow-lg overflow-hidden transition-all duration-300 z-40 ${
-            hoveredProject ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'
-          }`}
-        >
-          {hoveredProject && (
-            <img 
-              src={projects.find(p => p.title === hoveredProject)?.gif}
-              alt={`${hoveredProject} demo`} 
-              className="max-w-[24rem] max-h-[18rem] object-contain"
-            />
-          )}
+            <div className="prose prose-lg max-w-none font-sans">
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                  h1: ({ children }) => (
+                    <h1 className="text-xl font-medium text-gray-900 mb-4 lowercase">
+                      {children}
+                    </h1>
+                  ),
+                  h2: ({ children }) => (
+                    <h2 className="text-lg font-medium text-gray-900 mb-3 mt-6 lowercase">
+                      {children}
+                    </h2>
+                  ),
+                  h3: ({ children }) => (
+                    <h3 className="text-base font-medium text-gray-900 mb-2 mt-4 lowercase">
+                      {children}
+                    </h3>
+                  ),
+                  p: ({ children }) => (
+                    <p className="mb-4 text-gray-700 leading-relaxed lowercase">
+                      {children}
+                    </p>
+                  ),
+                  ul: ({ children }) => (
+                    <ul className="mb-4 space-y-1 text-gray-700 lowercase">
+                      {children}
+                    </ul>
+                  ),
+                  ol: ({ children }) => (
+                    <ol className="mb-4 space-y-1 text-gray-700 lowercase list-decimal list-inside">
+                      {children}
+                    </ol>
+                  ),
+                  li: ({ children }) => (
+                    <li className="text-gray-700 lowercase">
+                      {children}
+                    </li>
+                  ),
+                  code: ({ children }) => (
+                    <code className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono text-gray-800">
+                      {children}
+                    </code>
+                  ),
+                  pre: ({ children }) => (
+                    <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                      {children}
+                    </pre>
+                  ),
+                  blockquote: ({ children }) => (
+                    <blockquote className="border-l-4 border-gray-300 pl-4 mb-4 text-gray-600 italic lowercase">
+                      {children}
+                    </blockquote>
+                  ),
+                  a: ({ href, children }) => (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:text-blue-500 lowercase"
+                    >
+                      {children}
+                    </a>
+                  ),
+                }}
+              >
+                {readmeContent}
+              </ReactMarkdown>
+            </div>
+          </div>
         </div>
       </main>
     </div>

@@ -35,18 +35,18 @@ export default function Navbar() {
             >
               PROJECTS
             </Link>
-            <Link 
+            {/* <Link 
               href="/skills" 
               className={`${isActive('/skills') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
               SKILLS
-            </Link>
-            {/* <Link 
+            </Link> */}
+            <Link 
               href="/blog" 
               className={`${isActive('/blog') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
               BLOG
-            </Link> */}
+            </Link>
           </div>
           <div className="md:hidden flex items-center">
             <button 

@@ -9,7 +9,7 @@ interface BlogPostProps {
   content: string;
 }
 
-export default function BlogPost({ title, date, preview, content }: BlogPostProps) {
+export default function BlogPost({ title, date, content }: BlogPostProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { setIsReading } = useReading();
 
@@ -28,7 +28,6 @@ export default function BlogPost({ title, date, preview, content }: BlogPostProp
       <article className="border-b border-gray-200 py-8">
         <h2 className="text-xl font-medium text-gray-900">{title}</h2>
         <p className="mt-1 text-sm text-gray-500 font-sans">{date}</p>
-        <p className="mt-4 text-gray-500 font-sans">{preview}</p>
         <button
           onClick={handleOpen}
           className="mt-4 text-sm font-mono font-medium text-blue-600 hover:text-blue-500 transition-colors duration-200"
