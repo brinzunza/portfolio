@@ -1,7 +1,27 @@
 import Navbar from '../components/Navbar';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, Copy, Check } from 'lucide-react';
+import { useState } from 'react';
 
 export default function Home() {
+  const [emailState, setEmailState] = useState('mail'); // 'mail', 'copy', 'check'
+  const email = 'bruno.inzunza24@gmail.com';
+
+  const handleEmailClick = async () => {
+    if (emailState === 'mail') {
+      setEmailState('copy');
+    } else if (emailState === 'copy') {
+      try {
+        await navigator.clipboard.writeText(email);
+        setEmailState('check');
+        setTimeout(() => {
+          setEmailState('copy');
+        }, 2000);
+      } catch (err) {
+        console.error('Failed to copy email:', err);
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
@@ -53,15 +73,23 @@ export default function Home() {
                 </div>
                 <span className="mt-1.5 text-xs text-gray-500 group-hover:text-gray-900">LINKEDIN</span>
               </a>
-              <a
-                href="mailto:bruno.inzunza24@gmail.com"
-                className="group flex flex-col items-center"
-              >
-                <div className="p-2 rounded-full bg-gray-50 group-hover:bg-gray-100 transition-colors duration-200">
-                  <Mail className="h-5 w-5 text-gray-500 group-hover:text-gray-900" />
-                </div>
+              <div className="group flex flex-col items-center">
+                <button
+                  onClick={handleEmailClick}
+                  className="p-2 rounded-full bg-gray-50 group-hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
+                >
+                  {emailState === 'mail' && (
+                    <Mail className="h-5 w-5 text-gray-500 group-hover:text-gray-900" />
+                  )}
+                  {emailState === 'copy' && (
+                    <Copy className="h-5 w-5 text-gray-500 group-hover:text-gray-900" />
+                  )}
+                  {emailState === 'check' && (
+                    <Check className="h-5 w-5 text-green-600" />
+                  )}
+                </button>
                 <span className="mt-1.5 text-xs text-gray-500 group-hover:text-gray-900">EMAIL</span>
-              </a>
+              </div>
             </div>
           </div>
         </div>
