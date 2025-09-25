@@ -71,7 +71,7 @@ export default function Projects() {
       <Navbar />
       <main className="flex h-screen pt-16 max-w-6xl mx-auto px-8">
         {/* Left side - Project titles */}
-        <div className="w-1/3 border-r border-gray-200 overflow-y-auto pr-8">
+        <div className="w-1/3 border-r border-gray-200 overflow-y-scroll scrollbar-hide pr-8">
           <div className="py-8">
             <h1 className="text-xl font-light tracking-tight text-gray-900 mb-8">
               PROJECTS
@@ -97,7 +97,7 @@ export default function Projects() {
         </div>
 
         {/* Right side - Project readme content */}
-        <div className="w-2/3 overflow-y-auto pl-8">
+        <div className="w-2/3 overflow-y-scroll scrollbar-hide pl-8">
           <div className="py-8">
             <h1 className="text-2xl font-medium text-gray-900 mb-4">
               {selectedProject.title}

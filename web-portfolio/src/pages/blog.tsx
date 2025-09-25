@@ -10,7 +10,7 @@ export default function Blog() {
       <Navbar />
       <main className="flex h-screen pt-16 max-w-6xl mx-auto px-8">
         {/* Left side - Blog titles */}
-        <div className="w-1/3 border-r border-gray-200 overflow-y-auto pr-8">
+        <div className="w-1/3 border-r border-gray-200 overflow-y-scroll scrollbar-hide pr-8">
           <div className="py-8">
             <h1 className="text-xl font-light tracking-tight text-gray-900 mb-8">
               BLOG
@@ -38,7 +38,7 @@ export default function Blog() {
         </div>
 
         {/* Right side - Blog content */}
-        <div className="w-2/3 overflow-y-auto pl-8">
+        <div className="w-2/3 overflow-y-scroll scrollbar-hide pl-8">
           <div className="py-8">
             <h1 className="text-2xl font-medium text-gray-900 mb-4">
               {selectedPost.title}

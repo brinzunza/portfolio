@@ -21,9 +21,18 @@
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
   }
-  
+
   .font-sans {
     font-family: 'Inter', sans-serif;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 }
 
