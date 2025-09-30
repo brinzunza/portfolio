@@ -20,7 +20,7 @@ const projects = [
     description: 'developed a web-based platform that allows developers to practice and enhance debugging skills by solving simulated problems.',
     code: 'https://github.com/brinzunza/practicedebugging',
     gif: '/pd.gif',
-    tech: ['react', 'next', 'mongodb'],
+    tech: ['react', 'next', 'SQL'],
     readmeFile: '/pdreadme.md',
   },
   {
@@ -34,12 +34,12 @@ const projects = [
   },
   {
     id: '4',
-    title: 'mixed reality debate assistant',
+    title: 'you are wrong',
     description: 'created a real-time debate assistant leveraging mixed reality for immersive and interactive argumentation analysis.',
-    code: 'https://github.com/brinzunza/',
+    code: 'https://github.com/brinzunza/youarewrongAR',
     gif: '/mrda.gif',
-    tech: ['VR/AR'],
-    readmeFile: null,
+    tech: ['XR', 'CV'],
+    readmeFile: '/urwreadme.md',
   },
 ];
 
