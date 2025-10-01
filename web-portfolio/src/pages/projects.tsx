@@ -20,7 +20,7 @@ const projects = [
     description: 'developed a web-based platform that allows developers to practice and enhance debugging skills by solving simulated problems.',
     code: 'https://github.com/brinzunza/practicedebugging',
     gif: '/pd.gif',
-    tech: ['react', 'next', 'SQL'],
+    tech: ['react'],
     readmeFile: '/pdreadme.md',
   },
   {
