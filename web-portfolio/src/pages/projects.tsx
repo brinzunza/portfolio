@@ -41,6 +41,15 @@ const projects = [
     tech: ['XR', 'CV'],
     readmeFile: '/urwreadme.md',
   },
+  {
+    id: '5',
+    title: 'brain',
+    description: 'created a program to remember information you want to later recall',
+    code: 'https://github.com/brinzunza/brain',
+    gif: '/mrda.gif',
+    tech: ['vdb', 'python', 'react'],
+    readmeFile: '/breadme.md',
+  },
 ];
 
 export default function Projects() {
