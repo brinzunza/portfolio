@@ -50,6 +50,15 @@ const projects = [
     tech: ['vdb', 'python', 'react'],
     readmeFile: '/breadme.md',
   },
+  {
+    id: '6',
+    title: 'synthetic market data api',
+    description: 'created an api that generates synthetic market data which can be accessed through api',
+    code: 'https://github.com/brinzunza/market_data_engine',
+    gif: '/mrda.gif',
+    tech: ['python', 'docker', 'kafka'],
+    readmeFile: '/mdreadme.md',
+  },
 ];
 
 export default function Projects() {
