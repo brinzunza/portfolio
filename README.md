@@ -4,4 +4,4 @@
 
 # Personal Portfolio (https://brunoinzunza.com)
  
-A online fraction of who I am.
+An online fraction of who I am. 
