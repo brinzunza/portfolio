@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, Copy, Check } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Home() {
-  const [emailState, setEmailState] = useState('mail'); // 'mail', 'copy', 'check'
+  const [emailState, setEmailState] = useState('mail');
   const email = 'bruno.inzunza24@gmail.com';
 
   const handleEmailClick = async () => {
@@ -45,7 +45,7 @@ export default function Home() {
 
           <div className="mt-12 flex flex-col items-center">
             <p className="text-sm text-gray-500 sm:mx-auto md:text-base text-center max-w-md">
-              college and self-taught engineer focused on <span className="font-medium text-gray-700">software, data, and investing</span>. currently working on frontend, backend, database, computer vision, trading, and machine learning technologies.
+              college and self-taught engineer focused on<br></br> <span className="font-medium text-gray-700">software, data, ai, and investing</span>.<br></br> currently working on frontend, backend, database, computer vision, trading, and machine learning technologies.
             </p>
           </div>
 
