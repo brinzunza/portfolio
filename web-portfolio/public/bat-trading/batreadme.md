@@ -1,6 +1,6 @@
-<div style="margin-bottom: 20px;">
+<!-- <div style="margin-bottom: 20px;">
   <img src="/bat-trading/bdavid.png" alt="BAT Trading System" width="100%" style="display: block;"/>
-</div>
+</div> -->
 
 When you look at people with real wealth, I mean REAL wealth, it rarely comes in a form other than from equity in a company or some investment. These investments are powerful because your investment grows in proportion to the growth of the company. Meaning if you invest in a company that grows 10% over the course of a year and you invested $100, your equity, or your share of the company, would then be $110. Your new value $110 minus the original $100, means that you made $10 profit. 
 
@@ -76,7 +76,7 @@ Here we can see how when price reached the bottom standard deviation band, it wo
 Currently there is no guaranteed profitable strategy in the stock market but you don’t need to. Assuming that you limit yourself to lose and win the same amount per trade, you only need to win more than 50% of your trades to be profitable. On the other hand, you can remain profitable with a low win rate if you win more than you risk to lose. 
 
 <div style="margin-bottom: 20px;">
-  <img src="/bat-trading/table2.png" alt="Math" width="100%" style="display: block;"/>
+  <img src="/bat-trading/table2.png" alt="Math" width="50%" style="display: block;"/>
 </div>
 
 The standard however, is to make sure you win more than 8% per year. The reasoning behind that number is that the Standard and Poor’s 500 (S&P500) has historically grown by 8% consistently for many decades. Therefore, if you made less than 8% trading that year, you would have benefitted more by simply buying and holding the S&P500. 
