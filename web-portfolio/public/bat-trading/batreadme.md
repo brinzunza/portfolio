@@ -2,15 +2,17 @@
   <img src="/bat-trading/bdavid.png" alt="BAT Trading System" width="100%" style="display: block;"/>
 </div>
 
-BAT [Bruninvestor Algorithmic Trading]
-
 When you look at people with real wealth, I mean REAL wealth, it rarely comes in a form other than from equity in a company or some investment. These investments are powerful because your investment grows in proportion to the growth of the company. Meaning if you invest in a company that grows 10% over the course of a year and you invested $100, your equity, or your share of the company, would then be $110. Your new value $110 minus the original $100, means that you made $10 profit. 
 
-![Screenshot 2025-10-15 at 01.37.22.png](attachment:e3dab5b7-7f35-421d-b2f5-81083dcf6315:Screenshot_2025-10-15_at_01.37.22.png)
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/math1.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 
 Doesn’t seem like much, but now assume that you invested $1,000,000 in that same company for that same year with growth 10%. Since the property that your investment grows in proportion to the company persists, your new investment would be valued at $1,100,000. That’s a $100,000 profit. $100,000 can be life changing money for a lot of people. 
 
-![Screenshot 2025-10-15 at 01.38.18.png](attachment:6ba974d3-32c0-4e52-be5e-885057ef01bf:Screenshot_2025-10-15_at_01.38.18.png)
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/math2.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 
 The important thing to note here is that it took the same amount of effort for the $10 to grow 10%, as it did for the $1,000,000 to grow 10%. 
 
@@ -18,13 +20,19 @@ This example shows growth over a year but growth can happen over a short amount 
 
 However, a growth of 10% is easily as attainable as a loss of 10%. After a loss, it takes more effort to recover. For example with a loss of 10% on a $1,000 investment, it would take 11.11% to get back to your $1,000. Why? Here’s the math:
 
-![Screenshot 2025-10-16 at 13.04.41.png](attachment:3667ada1-0cd3-4c82-aa7f-e65aad542746:Screenshot_2025-10-16_at_13.04.41.png)
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/math3.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 
 Now the powerful thing about these percentage gains on our investments is that it compounds. The compound effect is where small steps build off of each other to exponentially make larger and larger steps. What does this look like? Well if we look back to our investment of $1,000 and we gain 10% per year for 10 consecutive years, we would have a total investment of $2,593.75. If you notice, 10% of $1,000 is $100. $100 * 10 years equals $1,000. $1,000 plus $1,000 is $2,000. Yet our total is more than that. This is because of compound interest. Where instead of each year being %10 of $1,000, it becomes 10% of our new investment value. Here’s what it looks like:
 
-![Screenshot 2025-10-16 at 13.09.51.png](attachment:2244473e-ba89-4b0d-aa6a-894156523cb7:Screenshot_2025-10-16_at_13.09.51.png)
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/table.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 
-![Screenshot 2025-10-16 at 13.15.03.png](attachment:4616bbea-bd1f-4e13-bb9c-6b0fa57ece73:Screenshot_2025-10-16_at_13.15.03.png)
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/math4.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 
 This is why people mention to start investment or retirement accounts at a young age. Because more time allows compounding to grow exponentially quicker. At the start of an investment, 10% in a year might only be $100, but with compounding it could grow to 10% in a year resulting in $1,000,000+. 
 
@@ -54,17 +62,22 @@ Bruninvestor Algorithmic Trading is the Algorithmic trading approach. It is mean
 
 Finding a strategy used to require lots of days if not months of backtesting but with the power of computers, it can complete this backtesting in less than a minute. You may be asking, what is backtesting? The concept of backtesting is applying your given strategy on historical data to test if it would have been successful in the past with the assumption that the market is going to have similar behavior in the future. Backtesting should be applied on unseen historical data. You cannot see the historical data you will be testing on as it would create over fitting where it may be successful well here but not in any other situation. Using this platform to backtest a strategy such as Conservative Mean Reversion results in: 
 
-![Screenshot 2025-10-16 at 14.47.08.png](attachment:7f8ca183-5a6a-4fdb-8fa3-8389864721ca:Screenshot_2025-10-16_at_14.47.08.png)
-
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/results.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 A strategy such as Conservative Mean Reversion requires certain factors: When to enter a buy position, when to enter a sell position, when to take profit, or stop loss. Conservative Mean Reversion is a strategy used in quantitative analysis where it uses statistics to track when the mean price is for a certain range and then use standard deviation to enter positions assuming that the price is going to return to the calculated mean price. 
 
-![Screenshot 2025-10-16 at 14.54.00.png](attachment:8dfd6582-a2e2-45e4-8a70-1204c0a20f28:Screenshot_2025-10-16_at_14.54.00.png)
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/graph.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 
 Here we can see how when price reached the bottom standard deviation band, it would enter a buy signal and when price returned to the mean, it would close a position. 
 
 Currently there is no guaranteed profitable strategy in the stock market but you don’t need to. Assuming that you limit yourself to lose and win the same amount per trade, you only need to win more than 50% of your trades to be profitable. On the other hand, you can remain profitable with a low win rate if you win more than you risk to lose. 
 
-![Screenshot 2025-10-16 at 15.03.20.png](attachment:c0502326-1c69-4f0e-985c-8f32ab691b0b:Screenshot_2025-10-16_at_15.03.20.png)
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/table2.png" alt="Math" width="100%" style="display: block;"/>
+</div>
 
 The standard however, is to make sure you win more than 8% per year. The reasoning behind that number is that the Standard and Poor’s 500 (S&P500) has historically grown by 8% consistently for many decades. Therefore, if you made less than 8% trading that year, you would have benefitted more by simply buying and holding the S&P500. 
 
