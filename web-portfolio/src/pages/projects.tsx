@@ -12,7 +12,7 @@ const projects = [
     code: 'https://github.com/brinzunza/BAT',
     gif: '/at.gif',
     tech: ['python', 'trading'],
-    readmeFile: '/batreadme.md',
+    readmeFile: '/bat-trading/batreadme.md',
   },
   {
     id: '2',
@@ -21,7 +21,7 @@ const projects = [
     code: 'https://github.com/brinzunza/practicedebugging',
     gif: '/pd.gif',
     tech: ['react'],
-    readmeFile: '/pdreadme.md',
+    readmeFile: '/practice-debugging/pdreadme.md',
   },
   {
     id: '3',
@@ -30,7 +30,7 @@ const projects = [
     code: 'https://github.com/brinzunza/ragchatbot',
     gif: '/rag.gif',
     tech: ['python', 'langchain', 'llm'],
-    readmeFile: '/ragreadme.md',
+    readmeFile: '/rag-chatbot/ragreadme.md',
   },
   {
     id: '4',
@@ -39,7 +39,7 @@ const projects = [
     code: 'https://github.com/brinzunza/youarewrongAR',
     gif: '/mrda.gif',
     tech: ['XR', 'CV'],
-    readmeFile: '/urwreadme.md',
+    readmeFile: '/you-are-wrong/urwreadme.md',
   },
   {
     id: '5',
@@ -48,7 +48,7 @@ const projects = [
     code: 'https://github.com/brinzunza/brain',
     gif: '/mrda.gif',
     tech: ['vdb', 'python', 'react'],
-    readmeFile: '/breadme.md',
+    readmeFile: '/brain/breadme.md',
   },
   {
     id: '6',
@@ -57,7 +57,7 @@ const projects = [
     code: 'https://github.com/brinzunza/market_data_engine',
     gif: '/mrda.gif',
     tech: ['python', 'docker', 'kafka'],
-    readmeFile: '/mdreadme.md',
+    readmeFile: '/market-data-api/mdreadme.md',
   },
 ];
 

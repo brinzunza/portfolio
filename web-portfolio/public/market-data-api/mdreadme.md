@@ -1,5 +1,5 @@
 <div style="margin-bottom: 20px;">
-  <img src="phanes.jpg" alt="phanes" width="100%" style="display: block;"/>
+  <img src="/market-data-api/phanes.jpg" alt="phanes" width="100%" style="display: block;"/>
 </div>
 
 # Synthetic Market Data API

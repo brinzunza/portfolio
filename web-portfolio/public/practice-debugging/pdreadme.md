@@ -1,5 +1,5 @@
 <div style="margin-bottom: 20px;">
-  <img src="socrates.png" alt="PracticeDebuggingSocrates" width="100%" style="display: block;"/>
+  <img src="/practice-debugging/socrates.png" alt="PracticeDebuggingSocrates" width="100%" style="display: block;"/>
 </div>
 
 # PracticeDebugging.com

@@ -1,5 +1,5 @@
 <div style="margin-bottom: 20px;">
-  <img src="athena.jpg" alt="athena" width="100%" style="display: block;"/>
+  <img src="/rag-chatbot/athena.jpg" alt="athena" width="100%" style="display: block;"/>
 </div>
 
 # rag chatbot

@@ -1,5 +1,5 @@
 <div style="margin-bottom: 20px;">
-  <img src="mnemosyne.jpg" alt="mnemosyne" width="100%" style="display: block;"/>
+  <img src="/brain/mnemosyne.jpg" alt="mnemosyne" width="100%" style="display: block;"/>
 </div>
 
 # brain

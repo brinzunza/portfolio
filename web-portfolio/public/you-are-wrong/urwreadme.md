@@ -1,5 +1,5 @@
 <div style="margin-bottom: 20px;">
-  <img src="plato.jpeg" alt="youarewong" width="100%" style="display: block;"/>
+  <img src="/you-are-wrong/plato.jpeg" alt="youarewong" width="100%" style="display: block;"/>
 </div>
 
 # You Are Wrong
