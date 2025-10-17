@@ -95,6 +95,10 @@ This project is for educational purposes only. It is not financial advice. Alway
 
 ## **Trading Modes**
 
+<div style="margin-bottom: 20px;">
+  <img src="/bat-trading/main.png" alt="Math" width="100%" style="display: block;"/>
+</div>
+
 ### **1. Backtesting Mode**
 
 - Test strategies on historical data
