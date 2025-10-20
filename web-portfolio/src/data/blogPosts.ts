@@ -7,6 +7,12 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: '9999',
+    title: 'overview',
+    date: '',
+    content: 'here are some of the thoughts and ideas that i think about pretty often. I am writing them down for two reasons: *for me not to forget them and for me to deeply understand what goes on internally.* I guess also to see how I have changed over time. \n\nI would like to say that all of these thoughts were my own, but the truth is that everything here is simply a compilation of things that I have learned, heard, read, or seen over the years. This means, **assume nothing I write is original, but rather bits and pieces of others that I tried to interpret.**\n\n the goal is to make these a slow read. Not because they are dense and hard to read, but rather because they are meant to trigger thought and reflection. I have only come to appreciate and begin writing until recently, so bear with me if my style is unorganized, contradictory, and hard to understand. \n\nThe content of the writings is variable, meaning that I might write about nearly anything; either blantantly obvious or outrageously controversial. If there is anything offensive, controversial, or factually false in the readings, assume it to be satire. There is no real chronological order to the writings either, so feel free to start and stop anywhere.\n\n also, every character written in these come organically from my brain and are typed using my hands. I refuse to rely on anything or anyone else for the purpose of integrity.'
+  },
+  {
     id: '6',
     title: 'opportunity cost',
     date: 'October 8, 2025',

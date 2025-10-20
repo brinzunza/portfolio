@@ -6,6 +6,14 @@ import Navbar from '../components/Navbar';
 
 const projects = [
   {
+    id: '9999',
+    title: 'overview',
+    description: '',
+    code: 'https://github.com/brinzunza/',
+    tech: ['Projects'],
+    readmeFile: '/overview/overview.md',
+  },
+  {
     id: '1',
     title: 'bruninvestor algorithmic trading',
     description: 'designed and implemented an algorithmic trading system. fully backtested with custom strategies.',

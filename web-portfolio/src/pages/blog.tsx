@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import { blogPosts } from '../data/blogPosts';
+import ReactMarkdown from 'react-markdown'; // Import ReactMarkdown
+import remarkGfm from 'remark-gfm'; // Import remarkGfm for GitHub Flavored Markdown
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState(blogPosts[0]);
@@ -47,13 +49,12 @@ export default function Blog() {
               {selectedPost.date.toLowerCase()}
             </p>
             <div className="prose prose-lg max-w-none font-sans">
-              {selectedPost.content.split('\n').map((paragraph, index) => (
-                paragraph.trim() && (
-                  <p key={index} className="mb-4 text-gray-700 leading-relaxed lowercase">
-                    {paragraph.toLowerCase()}
-                  </p>
-                )
-              ))}
+              {/* Use ReactMarkdown to render the content */}
+              <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
+                p: ({ node, ...props }) => <p className="mb-4 text-gray-700 leading-relaxed lowercase" {...props} />
+              }}>
+                {selectedPost.content}
+              </ReactMarkdown>
             </div>
           </div>
         </div>
