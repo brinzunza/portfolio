@@ -1,11 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { blogPosts } from '../data/blogPosts';
 import ReactMarkdown from 'react-markdown'; // Import ReactMarkdown
 import remarkGfm from 'remark-gfm'; // Import remarkGfm for GitHub Flavored Markdown
+import { useRouter } from 'next/router';
 
 export default function Blog() {
   const [selectedPost, setSelectedPost] = useState(blogPosts[0]);
+  const router = useRouter();
+
+  // Handle URL parameter for pre-selecting a blog post
+  useEffect(() => {
+    const { id } = router.query;
+    if (id && typeof id === 'string') {
+      const post = blogPosts.find(p => p.id === id);
+      if (post) {
+        setSelectedPost(post);
+      }
+    }
+  }, [router.query]);
 
   return (
     <div className="min-h-screen bg-white">

@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import Navbar from '../components/Navbar';
+import { useRouter } from 'next/router';
 
 const projects = [
   {
@@ -66,6 +67,18 @@ const projects = [
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(projects[0]);
   const [readmeContent, setReadmeContent] = useState('');
+  const router = useRouter();
+
+  // Handle URL parameter for pre-selecting a project
+  useEffect(() => {
+    const { id } = router.query;
+    if (id && typeof id === 'string') {
+      const project = projects.find(p => p.id === id);
+      if (project) {
+        setSelectedProject(project);
+      }
+    }
+  }, [router.query]);
 
   useEffect(() => {
     const fetchReadme = async () => {
