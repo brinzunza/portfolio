@@ -56,8 +56,8 @@ const projects = [
   },
   {
     id: '6',
-    title: 'synthetic market data api',
-    description: 'created an api that generates synthetic market data which can be accessed through api',
+    title: 'synthetic market data engine',
+    description: 'created an engine that generates synthetic market data which can be accessed through api',
     code: 'https://github.com/brinzunza/market_data_engine',
     tech: ['python', 'docker', 'kafka'],
     readmeFile: '/market-data-api/mdreadme.md',
@@ -65,20 +65,35 @@ const projects = [
 ];
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(projects[0]);
-  const [readmeContent, setReadmeContent] = useState('');
   const router = useRouter();
 
-  // Handle URL parameter for pre-selecting a project
-  useEffect(() => {
-    const { id } = router.query;
-    if (id && typeof id === 'string') {
-      const project = projects.find(p => p.id === id);
-      if (project) {
-        setSelectedProject(project);
+  // Initialize selectedProject based on URL parameter or default to overview
+  const getInitialProject = () => {
+    if (router.isReady) {
+      const { id } = router.query;
+      if (id && typeof id === 'string') {
+        const project = projects.find(p => p.id === id);
+        if (project) return project;
       }
     }
-  }, [router.query]);
+    return projects[0];
+  };
+
+  const [selectedProject, setSelectedProject] = useState(getInitialProject());
+  const [readmeContent, setReadmeContent] = useState('');
+
+  // Handle URL parameter changes
+  useEffect(() => {
+    if (router.isReady) {
+      const { id } = router.query;
+      if (id && typeof id === 'string') {
+        const project = projects.find(p => p.id === id);
+        if (project) {
+          setSelectedProject(project);
+        }
+      }
+    }
+  }, [router.isReady, router.query]);
 
   useEffect(() => {
     const fetchReadme = async () => {
