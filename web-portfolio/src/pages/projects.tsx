@@ -100,13 +100,16 @@ export default function Projects() {
   }, [selectedProject]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-neutral-100" style={{
+      backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
+      backgroundSize: '4px 4px'
+    }}>
       <Navbar />
       <main className="flex h-screen pt-16 max-w-6xl mx-auto px-8">
         {/* Left side - Project titles */}
-        <div className="w-1/3 border-r border-gray-200 overflow-y-scroll scrollbar-hide pr-8">
+        <div className="w-1/3 border-r border-black/10 overflow-y-scroll scrollbar-hide pr-8">
           <div className="py-8">
-            <h1 className="text-xl font-light tracking-tight text-gray-900 mb-8">
+            <h1 className="text-xl font-light tracking-tight text-black mb-8">
               PROJECTS
             </h1>
             <div className="space-y-4">
@@ -116,8 +119,8 @@ export default function Projects() {
                   onClick={() => setSelectedProject(project)}
                   className={`cursor-pointer transition-colors duration-200 ${
                     selectedProject.id === project.id
-                      ? 'text-gray-900'
-                      : 'text-gray-500 hover:text-gray-700'
+                      ? 'text-black'
+                      : 'text-black/60 hover:text-black'
                   }`}
                 >
                   <h2 className="text-sm font-medium lowercase hover:underline">
@@ -132,13 +135,13 @@ export default function Projects() {
         {/* Right side - Project readme content */}
         <div className="w-2/3 overflow-y-scroll scrollbar-hide pl-8">
           <div className="py-8">
-            <h1 className="text-2xl font-medium text-gray-900 mb-4">
+            <h1 className="text-2xl font-medium text-black mb-4">
               {selectedProject.title}
             </h1>
             <div className="mb-6">
               <div className="flex flex-wrap gap-2 mb-4">
                 {selectedProject.tech.map((tech) => (
-                  <span key={tech} className="px-3 py-1 text-xs font-mono bg-gray-100 text-gray-600 rounded-full">
+                  <span key={tech} className="px-3 py-1 text-xs font-mono bg-black/5 text-black/80 border border-black/10">
                     {tech}
                   </span>
                 ))}
@@ -147,7 +150,7 @@ export default function Projects() {
                 href={selectedProject.code}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-500 hover:text-gray-900 font-medium"
+                className="text-sm text-black/60 hover:text-black hover:underline transition-all"
               >
                 code
               </a>
@@ -158,52 +161,52 @@ export default function Projects() {
                 rehypePlugins={[rehypeRaw]}
                 components={{
                   h1: ({ children }) => (
-                    <h1 className="text-xl font-medium text-gray-900 mb-4 lowercase">
+                    <h1 className="text-xl font-medium text-black mb-4 lowercase">
                       {children}
                     </h1>
                   ),
                   h2: ({ children }) => (
-                    <h2 className="text-lg font-medium text-gray-900 mb-3 mt-6 lowercase">
+                    <h2 className="text-lg font-medium text-black mb-3 mt-6 lowercase">
                       {children}
                     </h2>
                   ),
                   h3: ({ children }) => (
-                    <h3 className="text-base font-medium text-gray-900 mb-2 mt-4 lowercase">
+                    <h3 className="text-base font-medium text-black mb-2 mt-4 lowercase">
                       {children}
                     </h3>
                   ),
                   p: ({ children }) => (
-                    <p className="mb-4 text-gray-700 leading-relaxed lowercase">
+                    <p className="mb-4 text-black/80 leading-relaxed lowercase">
                       {children}
                     </p>
                   ),
                   ul: ({ children }) => (
-                    <ul className="mb-4 space-y-1 text-gray-700 lowercase">
+                    <ul className="mb-4 space-y-1 text-black/80 lowercase">
                       {children}
                     </ul>
                   ),
                   ol: ({ children }) => (
-                    <ol className="mb-4 space-y-1 text-gray-700 lowercase list-decimal list-inside">
+                    <ol className="mb-4 space-y-1 text-black/80 lowercase list-decimal list-inside">
                       {children}
                     </ol>
                   ),
                   li: ({ children }) => (
-                    <li className="text-gray-700 lowercase">
+                    <li className="text-black/80 lowercase">
                       {children}
                     </li>
                   ),
                   code: ({ children }) => (
-                    <code className="bg-gray-100 px-1 py-0.5 rounded text-sm font-mono text-gray-800">
+                    <code className="bg-black/5 px-1 py-0.5 text-sm font-mono text-black/90 border border-black/10">
                       {children}
                     </code>
                   ),
                   pre: ({ children }) => (
-                    <pre className="bg-gray-100 p-4 rounded mb-4 overflow-x-auto">
+                    <pre className="bg-black/5 p-4 mb-4 overflow-x-auto border border-black/10">
                       {children}
                     </pre>
                   ),
                   blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 border-gray-300 pl-4 mb-4 text-gray-600 italic lowercase">
+                    <blockquote className="border-l-4 border-black/30 pl-4 mb-4 text-black/70 italic lowercase">
                       {children}
                     </blockquote>
                   ),
@@ -212,7 +215,7 @@ export default function Projects() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-500 lowercase"
+                      className="text-black hover:underline lowercase"
                     >
                       {children}
                     </a>

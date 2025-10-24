@@ -1,31 +1,12 @@
-import Navbar from '../components/Navbar';
-import { Github, Linkedin, Mail, Copy, Check, FolderGit2, FileText, ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import { blogPosts } from '../data/blogPosts';
 
-export default function Home() {
-  const [emailState, setEmailState] = useState('mail');
-  const email = 'bruno.inzunza24@gmail.com';
+const LandingPage: React.FC = () => {
   const router = useRouter();
+  const [showButtons, setShowButtons] = useState(false);
 
-  const handleEmailClick = async () => {
-    if (emailState === 'mail') {
-      setEmailState('copy');
-    } else if (emailState === 'copy') {
-      try {
-        await navigator.clipboard.writeText(email);
-        setEmailState('check');
-        setTimeout(() => {
-          setEmailState('copy');
-        }, 2000);
-      } catch (err) {
-        console.error('Failed to copy email:', err);
-      }
-    }
-  };
-
-  // Get projects data from projects page
+  // Get most recent project and blog post
   const projects = [
     { id: '1', title: 'bruninvestor algorithmic trading' },
     { id: '2', title: 'practice debugging' },
@@ -35,150 +16,141 @@ export default function Home() {
     { id: '6', title: 'synthetic market data api' },
   ];
 
-  // Sort projects by ID (descending) and get top 3, excluding overview
-  const featuredProjects = projects
+  const mostRecentProject = projects
     .filter(p => p.id !== '9999')
-    .sort((a, b) => Number(b.id) - Number(a.id))
-    .slice(0, 3);
+    .sort((a, b) => Number(b.id) - Number(a.id))[0];
 
-  // Sort blog posts by ID (descending) and get top 3, excluding overview
-  const featuredWritings = blogPosts
+  const mostRecentBlog = blogPosts
     .filter(post => post.id !== '9999')
-    .sort((a, b) => Number(b.id) - Number(a.id))
-    .slice(0, 3);
+    .sort((a, b) => Number(b.id) - Number(a.id))[0];
+
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent) => {
+      // Detect any scroll attempt
+      if (Math.abs(e.deltaY) > 0) {
+        setShowButtons(true);
+      }
+    };
+
+    window.addEventListener('wheel', handleWheel, { passive: true });
+    return () => window.removeEventListener('wheel', handleWheel);
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white">
-      <Navbar />
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
-        {/* Hero Section */}
-        <div className="min-h-screen flex flex-col items-center justify-center">
-          <div className="relative w-48 h-48 mb-8">
-            <img
-              src="/profile_pic.jpg"
-              alt="Bruno Inzunza"
-              className="w-full h-full rounded-full object-cover border-2 border-gray-100"
-            />
-          </div>
-          <h1 className="text-3xl font-light tracking-tight text-gray-900 sm:text-4xl md:text-5xl text-center font-mono">
-            BRUNO INZUNZA
-          </h1>
-          <p className="mt-2 text-base text-gray-500 sm:mx-auto md:mt-3 md:text-lg text-center">
-            SOFTWARE ENGINEER & DATA SCIENTIST
-          </p>
+    <div className="relative w-screen h-screen bg-neutral-100 text-black font-sans overflow-hidden" style={{
+      backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
+      backgroundSize: '4px 4px'
+    }}>
+      {/* Rotated vertical text */}
+      <div
+        className="fixed bottom-8 left-10 text-[10px] tracking-wide text-black leading-tight"
+        style={{
+          transform: 'rotate(-90deg)',
+          transformOrigin: 'left bottom',
+          maxWidth: 'calc(100vh - 8rem)',
+          width: 'max-content'
+        }}
+      >
+        COLLEGE AND SELF-TAUGHT ENGINEER FOCUSED ON SOFTWARE, DATA, AI, AND INVESTING. CURRENTLY WORKING ON FRONTEND, BACKEND, DATABASE, COMPUTER VISION, TRADING, AND MACHINE LEARNING TECHNOLOGIES.
+      </div>
 
-          <div className="mt-12 flex flex-col items-center">
-            <p className="text-sm text-gray-500 sm:mx-auto md:text-base text-center max-w-md">
-              college and self-taught engineer focused on<br></br> <span className="font-medium text-gray-700">software, data, ai, and investing</span>.<br></br> currently working on frontend, backend, database, computer vision, trading, and machine learning technologies.
-            </p>
-          </div>
+      {/* Center content */}
+      <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center gap-12 pointer-events-none">
+        <div className="pointer-events-auto flex items-center justify-center gap-12">
+        {/* Image block */}
+        <div className="w-[140px] h-[140px]">
+          <img
+            src="/profile_pic.jpg"
+            alt="Bruno Inzunza"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-          <div className="mt-12 flex justify-center">
-            <div className="flex space-x-6">
-              <a
-                href="https://github.com/brinzunza"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center"
-              >
-                <div className="p-2 rounded-full bg-gray-50 group-hover:bg-gray-100 transition-colors duration-200">
-                  <Github className="h-5 w-5 text-gray-500 group-hover:text-gray-900" />
-                </div>
-                <span className="mt-1.5 text-xs text-gray-500 group-hover:text-gray-900">GITHUB</span>
-              </a>
-              <a
-                href="https://linkedin.com/in/brunoinzunza"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col items-center"
-              >
-                <div className="p-2 rounded-full bg-gray-50 group-hover:bg-gray-100 transition-colors duration-200">
-                  <Linkedin className="h-5 w-5 text-gray-500 group-hover:text-gray-900" />
-                </div>
-                <span className="mt-1.5 text-xs text-gray-500 group-hover:text-gray-900">LINKEDIN</span>
-              </a>
-              <div className="group flex flex-col items-center">
-                <button
-                  onClick={handleEmailClick}
-                  className="p-2 rounded-full bg-gray-50 group-hover:bg-gray-100 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-300"
-                >
-                  {emailState === 'mail' && (
-                    <Mail className="h-5 w-5 text-gray-500 group-hover:text-gray-900" />
-                  )}
-                  {emailState === 'copy' && (
-                    <Copy className="h-5 w-5 text-gray-500 group-hover:text-gray-900" />
-                  )}
-                  {emailState === 'check' && (
-                    <Check className="h-5 w-5 text-green-600" />
-                  )}
-                </button>
-                <span className="mt-1.5 text-xs text-gray-500 group-hover:text-gray-900">EMAIL</span>
-              </div>
+        {/* Text block */}
+        <div className="flex flex-col items-start">
+          <div className="flex items-center font-bold text-[96px] leading-none">
+            <span className="mr-5">B</span>
+            <div className="text-[10px] uppercase tracking-wider mt-3 leading-tight">
+              <div>024</div>
+              <div>SOFTWARE ENGINEER</div>
+              <div>& DATA SCIENTIST</div>
             </div>
+            <span className="ml-5">I</span>
           </div>
+          <div className="text-[10px] mt-1 ml-3">BRUNO.INZUNZA</div>
         </div>
+        </div>
+      </div>
 
-        {/* Featured Projects Section */}
-        <div className="py-16 border-t border-gray-200">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-light tracking-tight text-gray-900 font-mono">
-              FEATURED PROJECTS
-            </h2>
-            <button
-              onClick={() => router.push('/projects')}
-              className="text-sm text-gray-500 hover:text-gray-900 font-medium flex items-center gap-1 transition-colors duration-200"
-            >
-              VIEW ALL
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredProjects.map((project) => (
-              <button
-                key={project.id}
-                onClick={() => router.push(`/projects?id=${project.id}`)}
-                className="group p-6 border border-gray-200 rounded-lg hover:border-gray-300 hover:shadow-sm transition-all duration-200 text-left"
-              >
-                <h3 className="text-sm font-medium text-gray-900 lowercase">
-                  {project.title}
-                </h3>
-              </button>
-            ))}
-          </div>
-        </div>
+      {/* Navigation buttons */}
+      <div className="fixed top-1/2 -translate-y-16 right-12 flex gap-6">
+        <button
+          onClick={() => router.push('/projects')}
+          className="text-black text-xs hover:underline transition-all"
+        >
+          PROJECTS
+        </button>
+        <button
+          onClick={() => router.push('/blog')}
+          className="text-black text-xs hover:underline transition-all"
+        >
+          BLOG
+        </button>
+      </div>
 
-        {/* Featured Writings Section */}
-        <div className="py-16 border-t border-gray-200">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-light tracking-tight text-gray-900 font-mono">
-              FEATURED WRITINGS
-            </h2>
-            <button
-              onClick={() => router.push('/blog')}
-              className="text-sm text-gray-500 hover:text-gray-900 font-medium flex items-center gap-1 transition-colors duration-200"
-            >
-              VIEW ALL
-              <ArrowRight className="h-4 w-4" />
-            </button>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {featuredWritings.map((post) => (
-              <button
-                key={post.id}
-                onClick={() => router.push(`/blog?id=${post.id}`)}
-                className="group p-6 border border-gray-200 rounded-lg hover:border-gray-300 hover:shadow-sm transition-all duration-200 text-left"
-              >
-                <h3 className="text-sm font-medium text-gray-900 lowercase">
-                  {post.title}
-                </h3>
-                <p className="text-xs text-gray-500 mt-1 lowercase">
-                  {post.date}
-                </p>
-              </button>
-            ))}
-          </div>
-        </div>
-      </main>
+      {/* Social/Contact links */}
+      <div className="fixed top-1/2 translate-y-16 right-12 flex gap-6">
+        <a
+          href="https://github.com/brinzunza"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black text-xs hover:underline transition-all"
+        >
+          GITHUB
+        </a>
+        <a
+          href="https://linkedin.com/in/brunoinzunza"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black text-xs hover:underline transition-all"
+        >
+          LINKEDIN
+        </a>
+        <a
+          href="mailto:bruno.inzunza24@gmail.com"
+          className="text-black text-xs hover:underline transition-all"
+        >
+          EMAIL
+        </a>
+      </div>
+
+      {/* Recent items - appear on scroll attempt */}
+      <div
+        className={`fixed bottom-20 left-1/2 -translate-x-1/2 flex gap-8 transition-all duration-500 ${
+          showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+      >
+        <button
+          onClick={() => router.push(`/projects?id=${mostRecentProject.id}`)}
+          className="flex flex-col items-center gap-2 group"
+        >
+          <span className="text-[10px] text-black/60 uppercase tracking-wider">LATEST PROJECT</span>
+          <span className="text-xs text-black hover:underline lowercase">
+            {mostRecentProject.title}
+          </span>
+        </button>
+        <button
+          onClick={() => router.push(`/blog?id=${mostRecentBlog.id}`)}
+          className="flex flex-col items-center gap-2 group"
+        >
+          <span className="text-[10px] text-black/60 uppercase tracking-wider">LATEST WRITING</span>
+          <span className="text-xs text-black hover:underline lowercase">
+            {mostRecentBlog.title}
+          </span>
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+export default LandingPage;

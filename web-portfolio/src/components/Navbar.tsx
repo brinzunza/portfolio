@@ -16,42 +16,65 @@ export default function Navbar() {
   if (isReading) return null;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 bg-neutral-100/80 backdrop-blur-md z-50 border-b border-black/10" style={{
+      backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
+      backgroundSize: '4px 4px'
+    }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="text-2xl font-mono font-semibold text-gray-900">BI</Link>
-          </div>
+          <Link href="/" className="flex items-center gap-2">
+            {/* Scaled down profile image */}
+            <div className="w-[28px] h-[28px]">
+              <img
+                src="/profile_pic.jpg"
+                alt="Bruno Inzunza"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Scaled down text block */}
+            <div className="flex flex-col items-start">
+              <div className="flex items-center font-bold text-[19px] leading-none">
+                <span className="mr-1">B</span>
+                <div className="text-[6px] uppercase tracking-wider mt-0.5 leading-tight">
+                  <div>024</div>
+                  <div>SOFTWARE ENGINEER</div>
+                  <div>& DATA SCIENTIST</div>
+                </div>
+                <span className="ml-1">I</span>
+              </div>
+              <div className="text-[6px] mt-0.5 ml-0.5">BRUNO.INZUNZA</div>
+            </div>
+          </Link>
           <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/" 
-              className={`${isActive('/') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
+            <Link
+              href="/"
+              className={`${isActive('/') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
               HOME
             </Link>
-            <Link 
-              href="/projects" 
-              className={`${isActive('/projects') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
+            <Link
+              href="/projects"
+              className={`${isActive('/projects') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
               PROJECTS
             </Link>
-            {/* <Link 
-              href="/skills" 
-              className={`${isActive('/skills') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
+            {/* <Link
+              href="/skills"
+              className={`${isActive('/skills') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
               SKILLS
             </Link> */}
-            <Link 
-              href="/blog" 
-              className={`${isActive('/blog') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
+            <Link
+              href="/blog"
+              className={`${isActive('/blog') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
               BLOG
             </Link>
           </div>
           <div className="md:hidden flex items-center">
-            <button 
-              onClick={toggleMenu} 
-              className="text-gray-500 hover:text-gray-900 transition-colors duration-200 font-sans"
+            <button
+              onClick={toggleMenu}
+              className="text-black/60 hover:text-black transition-colors duration-200 font-sans"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -60,29 +83,32 @@ export default function Navbar() {
       </div>
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div className="md:hidden bg-neutral-100/80 backdrop-blur-md border-b border-black/10" style={{
+          backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
+          backgroundSize: '4px 4px'
+        }}>
           <div className="px-4 pt-2 pb-3 space-y-1">
-            <Link 
-              href="/" 
-              className={`block ${isActive('/') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 py-2 text-sm font-mono font-medium`}
+            <Link
+              href="/"
+              className={`block ${isActive('/') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
               HOME
             </Link>
-            <Link 
-              href="/skills" 
-              className={`block ${isActive('/skills') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 py-2 text-sm font-mono font-medium`}
+            <Link
+              href="/skills"
+              className={`block ${isActive('/skills') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
               SKILLS
             </Link>
-            <Link 
-              href="/projects" 
-              className={`block ${isActive('/projects') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 py-2 text-sm font-mono font-medium`}
+            <Link
+              href="/projects"
+              className={`block ${isActive('/projects') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
               PROJECTS
             </Link>
-            <Link 
-              href="/blog" 
-              className={`block ${isActive('/blog') ? 'text-gray-900' : 'text-gray-500'} hover:text-gray-900 transition-colors duration-200 py-2 text-sm font-mono font-medium`}
+            <Link
+              href="/blog"
+              className={`block ${isActive('/blog') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
               BLOG
             </Link>

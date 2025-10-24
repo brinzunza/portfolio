@@ -21,13 +21,16 @@ export default function Blog() {
   }, [router.query]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-neutral-100" style={{
+      backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
+      backgroundSize: '4px 4px'
+    }}>
       <Navbar />
       <main className="flex h-screen pt-16 max-w-6xl mx-auto px-8">
         {/* Left side - Blog titles */}
-        <div className="w-1/3 border-r border-gray-200 overflow-y-scroll scrollbar-hide pr-8">
+        <div className="w-1/3 border-r border-black/10 overflow-y-scroll scrollbar-hide pr-8">
           <div className="py-8">
-            <h1 className="text-xl font-light tracking-tight text-gray-900 mb-8">
+            <h1 className="text-xl font-light tracking-tight text-black mb-8">
               BLOG
             </h1>
             <div className="space-y-4">
@@ -37,8 +40,8 @@ export default function Blog() {
                   onClick={() => setSelectedPost(post)}
                   className={`cursor-pointer transition-colors duration-200 ${
                     selectedPost.id === post.id
-                      ? 'text-gray-900'
-                      : 'text-gray-500 hover:text-gray-700'
+                      ? 'text-black'
+                      : 'text-black/60 hover:text-black'
                   }`}
                 >
                   <div className="flex items-baseline gap-2">
@@ -55,16 +58,16 @@ export default function Blog() {
         {/* Right side - Blog content */}
         <div className="w-2/3 overflow-y-scroll scrollbar-hide pl-8">
           <div className="py-8">
-            <h1 className="text-2xl font-medium text-gray-900 mb-4">
+            <h1 className="text-2xl font-medium text-black mb-4">
               {selectedPost.title}
             </h1>
-            <p className="text-sm text-gray-500 mb-8 font-sans">
+            <p className="text-sm text-black/60 mb-8 font-sans">
               {selectedPost.date.toLowerCase()}
             </p>
             <div className="prose prose-lg max-w-none font-sans">
               {/* Use ReactMarkdown to render the content */}
               <ReactMarkdown remarkPlugins={[remarkGfm]} components={{
-                p: ({ node, ...props }) => <p className="mb-4 text-gray-700 leading-relaxed lowercase" {...props} />
+                p: ({ node, ...props }) => <p className="mb-4 text-black/80 leading-relaxed lowercase" {...props} />
               }}>
                 {selectedPost.content}
               </ReactMarkdown>
