@@ -25,15 +25,25 @@ const LandingPage: React.FC = () => {
     .sort((a, b) => Number(b.id) - Number(a.id))[0];
 
   useEffect(() => {
+    // Show buttons after 5 seconds
+    const timer = setTimeout(() => {
+      setShowButtons(true);
+    }, 5000);
+
+    // Show buttons on scroll attempt
     const handleWheel = (e: WheelEvent) => {
-      // Detect any scroll attempt
       if (Math.abs(e.deltaY) > 0) {
         setShowButtons(true);
+        clearTimeout(timer); // Clear the timer if scroll happens first
       }
     };
 
     window.addEventListener('wheel', handleWheel, { passive: true });
-    return () => window.removeEventListener('wheel', handleWheel);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('wheel', handleWheel);
+    };
   }, []);
 
   return (
