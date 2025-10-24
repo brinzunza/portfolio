@@ -6,19 +6,34 @@ import remarkGfm from 'remark-gfm'; // Import remarkGfm for GitHub Flavored Mark
 import { useRouter } from 'next/router';
 
 export default function Blog() {
-  const [selectedPost, setSelectedPost] = useState(blogPosts[0]);
   const router = useRouter();
 
-  // Handle URL parameter for pre-selecting a blog post
-  useEffect(() => {
-    const { id } = router.query;
-    if (id && typeof id === 'string') {
-      const post = blogPosts.find(p => p.id === id);
-      if (post) {
-        setSelectedPost(post);
+  // Initialize selectedPost based on URL parameter or default to first post
+  const getInitialPost = () => {
+    if (router.isReady) {
+      const { id } = router.query;
+      if (id && typeof id === 'string') {
+        const post = blogPosts.find(p => p.id === id);
+        if (post) return post;
       }
     }
-  }, [router.query]);
+    return blogPosts[0];
+  };
+
+  const [selectedPost, setSelectedPost] = useState(getInitialPost());
+
+  // Handle URL parameter changes
+  useEffect(() => {
+    if (router.isReady) {
+      const { id } = router.query;
+      if (id && typeof id === 'string') {
+        const post = blogPosts.find(p => p.id === id);
+        if (post) {
+          setSelectedPost(post);
+        }
+      }
+    }
+  }, [router.isReady, router.query]);
 
   return (
     <div className="min-h-screen bg-neutral-100" style={{
