@@ -41,31 +41,22 @@ const LandingPage: React.FC = () => {
       backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
       backgroundSize: '4px 4px'
     }}>
-      {/* Rotated vertical text */}
-      <div
-        className="fixed bottom-8 left-10 text-[10px] tracking-wide text-black leading-tight"
-        style={{
-          transform: 'rotate(-90deg)',
-          transformOrigin: 'left bottom',
-          maxWidth: 'calc(100vh - 8rem)',
-          width: 'max-content'
-        }}
-      >
-        COLLEGE AND SELF-TAUGHT ENGINEER FOCUSED ON <strong><span className="underline">SOFTWARE, DATA, AI, AND INVESTING.</span></strong> CURRENTLY WORKING ON FRONTEND, BACKEND, DATABASE, COMPUTER VISION, TRADING, AND MACHINE LEARNING TECHNOLOGIES.
+      {/* Bio description - top left corner */}
+      <div className="fixed top-8 left-8 text-[10px] tracking-wide text-white leading-tight max-w-xs z-10">
+        COLLEGE AND SELF-TAUGHT ENGINEER FOCUSED ON <span className="underline">SOFTWARE</span>, <span className="underline">DATA</span>, <span className="underline">AI</span>, AND <span className="underline">INVESTING</span>. CURRENTLY WORKING ON FRONTEND, BACKEND, DATABASE, COMPUTER VISION, TRADING, AND MACHINE LEARNING TECHNOLOGIES.
       </div>
 
-      {/* Center content */}
-      <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center gap-12 pointer-events-none">
-        <div className="pointer-events-auto flex items-center justify-center gap-12">
-        {/* Image block */}
-        <div className="w-[140px] h-[140px]">
-          <img
-            src="/profile_pic.jpg"
-            alt="Bruno Inzunza"
-            className="w-full h-full object-cover"
-          />
-        </div>
+      {/* Left half - Fullscreen Image */}
+      <div className="fixed left-0 top-0 w-1/2 h-screen">
+        <img
+          src="/profile_pic.jpg"
+          alt="Bruno Inzunza"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
+      {/* Right half - All content */}
+      <div className="fixed right-0 top-0 w-1/2 h-screen flex items-center justify-center">
         {/* Text block */}
         <div className="flex flex-col items-start">
           <div className="flex items-center font-bold text-[96px] leading-none">
@@ -79,11 +70,10 @@ const LandingPage: React.FC = () => {
           </div>
           <div className="text-[10px] mt-1 ml-3">BRUNO.INZUNZA</div>
         </div>
-        </div>
       </div>
 
-      {/* Navigation buttons */}
-      <div className="fixed top-1/2 -translate-y-16 right-12 flex gap-6">
+      {/* Navigation buttons - right side */}
+      <div className="fixed top-1/2 -translate-y-16 right-[25%] flex gap-6">
         <button
           onClick={() => router.push('/projects')}
           className="text-black text-xs hover:underline transition-all"
@@ -98,8 +88,8 @@ const LandingPage: React.FC = () => {
         </button>
       </div>
 
-      {/* Social/Contact links */}
-      <div className="fixed top-1/2 translate-y-16 right-12 flex gap-6">
+      {/* Social/Contact links - right side */}
+      <div className="fixed top-1/2 translate-y-16 right-[25%] flex gap-6">
         <a
           href="https://github.com/brinzunza"
           target="_blank"
@@ -124,9 +114,9 @@ const LandingPage: React.FC = () => {
         </a>
       </div>
 
-      {/* Recent items - appear on scroll attempt */}
+      {/* Recent items - appear on scroll attempt - centered in right half */}
       <div
-        className={`fixed bottom-20 left-1/2 -translate-x-1/2 flex gap-8 transition-all duration-500 ${
+        className={`fixed bottom-20 left-3/4 -translate-x-1/2 flex gap-8 transition-all duration-500 ${
           showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
       >
