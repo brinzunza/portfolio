@@ -24,25 +24,12 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
             {/* Scaled down profile image */}
-            <div className="w-[28px] h-[28px]">
+            <div className="w-[40px] h-[40px] object-cover">
               <img
                 src="/profile_pic.jpg"
                 alt="Bruno Inzunza"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-full"
               />
-            </div>
-            {/* Scaled down text block */}
-            <div className="flex flex-col items-start">
-              <div className="flex items-center font-bold text-[19px] leading-none">
-                <span className="mr-1">B</span>
-                <div className="text-[6px] uppercase tracking-wider mt-0.5 leading-tight">
-                  <div>024</div>
-                  <div>SOFTWARE ENGINEER</div>
-                  <div>& DATA SCIENTIST</div>
-                </div>
-                <span className="ml-1">I</span>
-              </div>
-              <div className="text-[6px] mt-0.5 ml-0.5">BRUNO.INZUNZA</div>
             </div>
           </Link>
           <div className="hidden md:flex items-center space-x-8">
