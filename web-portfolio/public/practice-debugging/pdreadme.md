@@ -1,13 +1,22 @@
+From an outside perspective, people view software engineers as people who solely write code. Where we can simply sit down on an empty screen and start writing code until it’s hundreds of lines of perfectly written code. Contrary to that perspective, much of the time software engineers spend in front of a screen, is debugging. Debugging is the process in which a software engineer fixes some error in the code that breaks expected functionality. According to Stack Overflow’s Developer Survey, developers burn roughly 50% of their coding time debugging instead of shipping features. That means that half of the time they spend working is taken up by reading, understanding, and rewriting code. Not only is that annoying and extremely draining for the developer, but the company loses a lot of productive development time there. 
+
 <div style="margin-bottom: 20px;">
-  <img src="/practice-debugging/socrates.png" alt="PracticeDebuggingSocrates" width="100%" style="display: block;"/>
+  <img src="/practice-debugging/debugging_image1.png
+  " alt="Charts" width="100%" style="display: block;"/>
 </div>
 
-# PracticeDebugging.com
+As a matter of fact, a great indicator of the skill of a software engineer, is their ability to debug. Highly skilled debuggers prove to have: a great understanding of code, ability to dissect problems into smaller parts, and resolve these issues, long term and in short, high pressure times. This is highly desirable for anyone at any company because, as we mentioned, it reduces development energy, effort, and cost. 
 
-This is a platform designed to help users practice their debugging skills. Users can select from a list of challenges, each containing a broken code snippet. The goal is to identify and fix the hidden bugs.
+More recently, with the emergence of generative artificial intelligence being able to write vast amounts of code, the job of a software engineer has shifted from a position of writing code to instead reviewing and debugging. The demand for engineers who can write large amounts of code has fallen while those who can create or improve smaller, high quality code has spiked up. Since software engineers are chronically online and most resources are online, these large language models have been trained on an enormous amount of data about code, allowing it to understand how to code and even how to debug. But as we know, companies and products affect real people and some have little margin for error which can result in people’s lives on the line. With this in consideration, it is very hard to leave it solely up to AI to figure things out. 
 
-## Features
 
-Debug Challenges: A collection of problems to test and improve debugging abilities.
-Performance Tracking: Statistics on solved problems, time spent, and attempts.
-Learning Guide: Resources and tips for effective debugging.
+>Companies lose billions of dollars to debugging due to wasted developer time, which can cost an estimated $61 billion annually, according to a 2020 report. Beyond direct labor costs, poor software quality and bugs lead to significant expenses like lost revenue, damage to brand reputation, and increased development costs for future projects. -NovelVista, 2025
+
+
+Most professional software engineers went through university to learn computer science. Programs around the world often cover data structures, algorithms, project building, and different applications while barely touching systematic debugging approaches. Even though we are in our early stages of learning how to code, where we are most likely to make mistakes, we are almost left in the dark to figure these problems out. While it does have its benefits, it can be a large waste of time without knowing some type of guideline to follow. 
+
+Then, as these students graduate, they may have the image in their head that they will join a company that will task them to start a project from scratch, like they have in their classes. However, this is almost never the case. In most cases, they join a team with a lot of prewritten code and possibly old, legacy code. They are often adding on or refactoring the project which requires a great understanding of what has been previously achieved. And as much as documentation may help, having the experience to know how to approach these challenges is essential to properly completing these tasks. 
+
+As many developers know, learning by watching someone else code, such as in a tutorial, is not an effective way to learn how to code. It takes time and effort to put yourself through the struggle to understand tradeoffs and reasons behind why different components exist. Debugging is no different. You have to put yourself through the struggle to effectively learn and for you to properly remember. 
+
+The purpose of this program is to help resolve all of these problems. To give the skills developers need to debug and become much more productive. It puts users through example situations where they must first read the code, making sure that they understand what it going on and what is desired, as well as being able to resolve the issue efficiently. Much like Leetcode is able to teach developers how to efficiently write algorithms that solve problems, PracticeDebugging is able to teach people how to debug.
