@@ -1,45 +1,53 @@
+In the current age of misinformation, it has become easy for people to be convinced of things that objectively are not true. The issue with this, is that once they are convinced, they easy and confidently spread this misinformation which causes exponential spread of it. There have then been times when I speak with people convinced of wrong information and they have been so well convinced that I struggle to properly counter them. The best way to fix this, is to improve my critical thinking and debating skills. But that is hard. Instead, why don’t I be lazy and make an llm come up with that. 
+
 <div style="margin-bottom: 20px;">
-  <img src="/you-are-wrong/plato.jpeg" alt="youarewong" width="100%" style="display: block;"/>
+  <img src="/you-are-wrong/chart.png
+  " alt="Charts" width="100%" style="display: block;"/>
 </div>
 
-# You Are Wrong
+*What does that take…?*
 
-AI-powered real-time fact-checker that listens to your statements and provides counterarguments using GPT.
+Manually writing they argument into ChatGPT? —————>**Too long.** 
 
-## What It Does
+Put ChatGPT voice mode? ——————>**It’ll interrupt and respond to everything we say instead of what the other person says.**
 
-- Detects when you're talking using facial recognition
-- Transcribes your speech in real-time
-- Sends statements to OpenAI for fact-checking
-- Returns truth assessment and counterargument
+Muting and unmuting ChatGPT when the other person talks? ——————>**Too many buttons needing to be pressed.**
 
-## Requirements
+These all reduce the attention I can put to the other person. A proper solution is one that can keep the conversation flow, provide accurate information, and requires no manual effort. The solution? 
 
-- OpenAI API key
-- Modern browser (Chrome/Safari)
-- Camera and microphone access
+**Mixed Reality + Audio Transcription + Computer Vision + LLM**
 
-## Setup
+<div style="margin-bottom: 20px;">
+  <img src="/you-are-wrong/diagram.png
+  " alt="diagram" width="100%" style="display: block;"/>
+</div>
 
-1. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+This platform is an ai-powered real-time fact checker and counter-arguer that listens to the statements of the person you’re debating and has a seamless interface for easy reading. Regardless of what the other person is talking about, it gives you proper fact checking and a counter. Either for serious situations or for a casual satirical debates it comes up with information that can guarantee a win…
 
-2. Create `.env` file:
-```bash
-OPENAI_API_KEY=your_api_key_here
-```
+…
 
-3. Run:
-```bash
-python app.py
-```
+…
 
-4. Open browser: `http://localhost:5001`
+…
 
-## Compatible With
+…
 
-- Desktop: Chrome, Edge, Firefox
-- Mobile: Safari (iOS), Chrome (Android)
-- Requires HTTPS for mobile camera/microphone access
+…
+
+…
+
+…
+
+…
+
+…
+
+…
+
+…
+
+…
+
+…
+
+..Not that it’s a competition or anything.
