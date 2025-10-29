@@ -7,11 +7,14 @@ In the current age of misinformation, it has become easy for people to be convin
 
 *What does that take…?*
 
-Manually writing they argument into ChatGPT? —————>**Too long.** 
+Manually writing they argument into ChatGPT?
+- **Too long.** 
 
-Put ChatGPT voice mode? ——————>**It’ll interrupt and respond to everything we say instead of what the other person says.**
+Put ChatGPT voice mode?
+- **It’ll interrupt and respond to everything we say instead of what the other person says.**
 
-Muting and unmuting ChatGPT when the other person talks? ——————>**Too many buttons needing to be pressed.**
+Muting and unmuting ChatGPT when the other person talks?
+- **Too many buttons needing to be pressed.**
 
 These all reduce the attention I can put to the other person. A proper solution is one that can keep the conversation flow, provide accurate information, and requires no manual effort. The solution? 
 
