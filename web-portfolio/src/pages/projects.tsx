@@ -120,14 +120,14 @@ export default function Projects() {
       backgroundSize: '4px 4px'
     }}>
       <Navbar />
-      <main className="flex h-screen pt-16 max-w-6xl mx-auto px-8">
+      <main className="flex flex-col md:flex-row h-screen pt-16 max-w-6xl mx-auto px-4 md:px-8">
         {/* Left side - Project titles */}
-        <div className="w-1/3 border-r border-black/10 overflow-y-scroll scrollbar-hide pr-8">
-          <div className="py-8">
-            <h1 className="text-xl font-light tracking-tight text-black mb-8">
+        <div className="w-full md:w-1/3 md:border-r border-b md:border-b-0 border-black/10 overflow-y-scroll scrollbar-hide md:pr-8 pb-4 md:pb-0">
+          <div className="py-4 md:py-8">
+            <h1 className="text-lg md:text-xl font-light tracking-tight text-black mb-4 md:mb-8">
               PROJECTS
             </h1>
-            <div className="space-y-4">
+            <div className="space-y-2 md:space-y-4">
               {projects.map((project) => (
                 <div
                   key={project.id}
@@ -138,7 +138,7 @@ export default function Projects() {
                       : 'text-black/60 hover:text-black'
                   }`}
                 >
-                  <h2 className="text-sm font-medium lowercase hover:underline">
+                  <h2 className="text-xs md:text-sm font-medium lowercase hover:underline">
                     {project.title.toLowerCase()}
                   </h2>
                 </div>
@@ -148,15 +148,15 @@ export default function Projects() {
         </div>
 
         {/* Right side - Project readme content */}
-        <div className="w-2/3 overflow-y-scroll scrollbar-hide pl-8">
-          <div className="py-8">
-            <h1 className="text-2xl font-medium text-black mb-4">
+        <div className="w-full md:w-2/3 overflow-y-scroll scrollbar-hide md:pl-8">
+          <div className="py-4 md:py-8">
+            <h1 className="text-xl md:text-2xl font-medium text-black mb-3 md:mb-4">
               {selectedProject.title}
             </h1>
-            <div className="mb-6">
-              <div className="flex flex-wrap gap-2 mb-4">
+            <div className="mb-4 md:mb-6">
+              <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
                 {selectedProject.tech.map((tech) => (
-                  <span key={tech} className="px-3 py-1 text-xs font-mono bg-black/5 text-black/80 border border-black/10">
+                  <span key={tech} className="px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs font-mono bg-black/5 text-black/80 border border-black/10">
                     {tech}
                   </span>
                 ))}
@@ -165,7 +165,7 @@ export default function Projects() {
                 href={selectedProject.code}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-black/60 hover:text-black hover:underline transition-all"
+                className="text-xs md:text-sm text-black/60 hover:text-black hover:underline transition-all"
               >
                 code
               </a>

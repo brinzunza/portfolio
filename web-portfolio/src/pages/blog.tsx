@@ -41,14 +41,14 @@ export default function Blog() {
       backgroundSize: '4px 4px'
     }}>
       <Navbar />
-      <main className="flex h-screen pt-16 max-w-6xl mx-auto px-8">
+      <main className="flex flex-col md:flex-row h-screen pt-16 max-w-6xl mx-auto px-4 md:px-8">
         {/* Left side - Blog titles */}
-        <div className="w-1/3 border-r border-black/10 overflow-y-scroll scrollbar-hide pr-8">
-          <div className="py-8">
-            <h1 className="text-xl font-light tracking-tight text-black mb-8">
+        <div className="w-full md:w-1/3 md:border-r border-b md:border-b-0 border-black/10 overflow-y-scroll scrollbar-hide md:pr-8 pb-4 md:pb-0">
+          <div className="py-4 md:py-8">
+            <h1 className="text-lg md:text-xl font-light tracking-tight text-black mb-4 md:mb-8">
               BLOG
             </h1>
-            <div className="space-y-4">
+            <div className="space-y-2 md:space-y-4">
               {blogPosts.map((post) => (
                 <div
                   key={post.id}
@@ -60,7 +60,7 @@ export default function Blog() {
                   }`}
                 >
                   <div className="flex items-baseline gap-2">
-                    <h2 className="text-sm font-medium lowercase hover:underline">
+                    <h2 className="text-xs md:text-sm font-medium lowercase hover:underline">
                       {post.title.toLowerCase()}
                     </h2>
                   </div>
@@ -71,12 +71,12 @@ export default function Blog() {
         </div>
 
         {/* Right side - Blog content */}
-        <div className="w-2/3 overflow-y-scroll scrollbar-hide pl-8">
-          <div className="py-8">
-            <h1 className="text-2xl font-medium text-black mb-4">
+        <div className="w-full md:w-2/3 overflow-y-scroll scrollbar-hide md:pl-8">
+          <div className="py-4 md:py-8">
+            <h1 className="text-xl md:text-2xl font-medium text-black mb-3 md:mb-4">
               {selectedPost.title}
             </h1>
-            <p className="text-sm text-black/60 mb-8 font-sans">
+            <p className="text-xs md:text-sm text-black/60 mb-4 md:mb-8 font-sans">
               {selectedPost.date.toLowerCase()}
             </p>
             <div className="prose prose-lg max-w-none font-sans">
