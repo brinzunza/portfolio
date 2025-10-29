@@ -82,12 +82,6 @@ export default function Navbar() {
               HOME
             </Link>
             <Link
-              href="/skills"
-              className={`block ${isActive('/skills') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
-            >
-              SKILLS
-            </Link>
-            <Link
               href="/projects"
               className={`block ${isActive('/projects') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >

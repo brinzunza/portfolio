@@ -28,8 +28,8 @@ const LandingPage: React.FC = () => {
       backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
       backgroundSize: '4px 4px'
     }}>
-      {/* Bio description - top left corner - only on desktop */}
-      <div className="hidden md:block fixed top-16 left-12 text-[10px] tracking-wide text-white leading-tight max-w-xs z-10">
+      {/* Bio description - top left corner */}
+      <div className="fixed top-4 left-4 md:top-16 md:left-12 text-[6px] md:text-[10px] tracking-wide text-white leading-tight max-w-[180px] md:max-w-xs z-10">
         COLLEGE AND SELF-TAUGHT ENGINEER FOCUSED ON <span className="underline">SOFTWARE</span>, <span className="underline">DATA</span>, <span className="underline">AI</span>, AND <span className="underline">INVESTING</span>. CURRENTLY WORKING ON FRONTEND, BACKEND, DATABASE, COMPUTER VISION, TRADING, AND MACHINE LEARNING TECHNOLOGIES.
       </div>
 
