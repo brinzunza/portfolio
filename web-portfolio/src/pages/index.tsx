@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useRouter } from 'next/router';
 import { blogPosts } from '../data/blogPosts';
 
 const LandingPage: React.FC = () => {
   const router = useRouter();
-  const [showButtons, setShowButtons] = useState(false);
 
   // Get most recent project and blog post
   const projects = [
@@ -24,35 +23,13 @@ const LandingPage: React.FC = () => {
     .filter(post => post.id !== '9999')
     .sort((a, b) => Number(b.id) - Number(a.id))[0];
 
-  useEffect(() => {
-    // Show buttons after 5 seconds
-    const timer = setTimeout(() => {
-      setShowButtons(true);
-    }, 5000);
-
-    // Show buttons on scroll attempt
-    const handleWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) > 0) {
-        setShowButtons(true);
-        clearTimeout(timer); // Clear the timer if scroll happens first
-      }
-    };
-
-    window.addEventListener('wheel', handleWheel, { passive: true });
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('wheel', handleWheel);
-    };
-  }, []);
-
   return (
     <div className="relative w-screen h-screen bg-neutral-100 text-black font-sans overflow-hidden" style={{
       backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
       backgroundSize: '4px 4px'
     }}>
       {/* Bio description - top left corner */}
-      <div className="fixed top-8 left-8 text-[10px] tracking-wide text-white leading-tight max-w-xs z-10">
+      <div className="fixed top-16 left-12 text-[10px] tracking-wide text-white leading-tight max-w-xs z-10">
         COLLEGE AND SELF-TAUGHT ENGINEER FOCUSED ON <span className="underline">SOFTWARE</span>, <span className="underline">DATA</span>, <span className="underline">AI</span>, AND <span className="underline">INVESTING</span>. CURRENTLY WORKING ON FRONTEND, BACKEND, DATABASE, COMPUTER VISION, TRADING, AND MACHINE LEARNING TECHNOLOGIES.
       </div>
 
@@ -124,12 +101,8 @@ const LandingPage: React.FC = () => {
         </a>
       </div>
 
-      {/* Recent items - appear on scroll attempt - centered in right half */}
-      <div
-        className={`fixed bottom-20 left-3/4 -translate-x-1/2 flex gap-8 transition-all duration-500 ${
-          showButtons ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
-        }`}
-      >
+      {/* Recent items - centered in right half */}
+      <div className="fixed bottom-20 left-3/4 -translate-x-1/2 flex gap-8">
         <button
           onClick={() => router.push(`/projects?id=${mostRecentProject.id}`)}
           className="flex flex-col items-center gap-2 group"
