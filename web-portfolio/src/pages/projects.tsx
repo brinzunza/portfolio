@@ -167,7 +167,9 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="text-xs md:text-sm text-black/60 hover:text-black hover:underline transition-all"
               >
-                code
+                <strong>
+               [ code ]
+               </strong>
               </a>
             </div>
             <div className="prose prose-lg max-w-none font-sans">
