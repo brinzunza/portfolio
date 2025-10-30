@@ -47,83 +47,63 @@ const LandingPage: React.FC = () => {
         backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
         backgroundSize: '4px 4px'
       }}>
-        {/* Text block */}
-        <div className="flex flex-col items-start px-4 md:px-0">
-          <div className="flex items-center font-bold text-[64px] md:text-[96px] leading-none">
-            <span className="mr-3 md:mr-5">B</span>
-            <div className="text-[8px] md:text-[10px] uppercase tracking-wider mt-2 md:mt-3 leading-tight">
-              <div>024</div>
-              <div>SOFTWARE ENGINEER</div>
-              <div>& DATA SCIENTIST</div>
-            </div>
-            <span className="ml-3 md:ml-5">I</span>
+        <div className="flex flex-col items-center gap-6">
+          {/* Navigation buttons - PROJECTS and BLOG */}
+          <div className="flex gap-4 md:gap-6">
+            <button
+              onClick={() => router.push('/projects')}
+              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+            >
+              PROJECTS
+            </button>
+            <button
+              onClick={() => router.push('/blog')}
+              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+            >
+              BLOG
+            </button>
           </div>
-          <div className="text-[8px] md:text-[10px] mt-1 ml-2 md:ml-3">BRUNO.INZUNZA</div>
+
+          {/* Social/Contact links */}
+          <div className="flex gap-4 md:gap-6">
+            <a
+              href="https://github.com/brinzunza"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+            >
+              GITHUB
+            </a>
+            <a
+              href="https://linkedin.com/in/brunoinzunza"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+            >
+              LINKEDIN
+            </a>
+            <a
+              href="mailto:bruno.inzunza24@gmail.com"
+              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+            >
+              EMAIL
+            </a>
+          </div>
+
+          {/* Text block - Title */}
+          <div className="flex flex-col items-start px-4 md:px-0 mt-6">
+            <div className="flex items-center font-bold text-[64px] md:text-[96px] leading-none">
+              <span className="mr-3 md:mr-5">B</span>
+              <div className="text-[8px] md:text-[10px] uppercase tracking-wider mt-2 md:mt-3 leading-tight">
+                <div>024</div>
+                <div>SOFTWARE ENGINEER</div>
+                <div>& DATA SCIENTIST</div>
+              </div>
+              <span className="ml-3 md:ml-5">I</span>
+            </div>
+            <div className="text-[8px] md:text-[10px] mt-1 ml-2 md:ml-3">BRUNO.INZUNZA</div>
+          </div>
         </div>
-      </div>
-
-      {/* All navigation links on one line for mobile, separate rows for desktop */}
-      <div className="fixed top-[calc(33.333%+180px)] md:top-1/2 left-1/2 md:left-auto md:-translate-y-16 md:right-[25%] -translate-x-1/2 md:translate-x-0 flex flex-wrap gap-3 md:gap-6 z-20 justify-center md:justify-start">
-        <button
-          onClick={() => router.push('/projects')}
-          className="text-black text-[10px] md:text-xs hover:underline transition-all"
-        >
-          PROJECTS
-        </button>
-        <button
-          onClick={() => router.push('/blog')}
-          className="text-black text-[10px] md:text-xs hover:underline transition-all"
-        >
-          BLOG
-        </button>
-        <a
-          href="https://github.com/brinzunza"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black text-[10px] md:text-xs hover:underline transition-all md:hidden"
-        >
-          GITHUB
-        </a>
-        <a
-          href="https://linkedin.com/in/brunoinzunza"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black text-[10px] md:text-xs hover:underline transition-all md:hidden"
-        >
-          LINKEDIN
-        </a>
-        <a
-          href="mailto:bruno.inzunza24@gmail.com"
-          className="text-black text-[10px] md:text-xs hover:underline transition-all md:hidden"
-        >
-          EMAIL
-        </a>
-      </div>
-
-      {/* Social/Contact links - Desktop only (separate row) */}
-      <div className="hidden md:flex fixed top-1/2 translate-y-16 right-[25%] gap-6 z-20">
-        <a
-          href="https://github.com/brinzunza"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black text-xs hover:underline transition-all"
-        >
-          GITHUB
-        </a>
-        <a
-          href="https://linkedin.com/in/brunoinzunza"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-black text-xs hover:underline transition-all"
-        >
-          LINKEDIN
-        </a>
-        <a
-          href="mailto:bruno.inzunza24@gmail.com"
-          className="text-black text-xs hover:underline transition-all"
-        >
-          EMAIL
-        </a>
       </div>
 
       {/* Recent items - Stack vertically on mobile, horizontal on desktop */}
