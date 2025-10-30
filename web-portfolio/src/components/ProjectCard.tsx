@@ -34,9 +34,9 @@ export default function ProjectCard({
             className="w-full h-full md:h-48 object-cover"
           />
         </div>
-        <div className="p-6 h-1/2 md:h-auto flex flex-col justify-center items-center text-center md:text-left md:items-start">
-          <h3 className="text-xl font-medium mb-2 text-gray-900">{title}</h3>
-          <p className="text-gray-500 mb-4 text-sm leading-relaxed">{description}</p>
+        <div className="p-6 h-1/2 md:h-auto flex flex-col justify-center items-center md:items-start">
+          <h3 className="text-xl font-medium mb-2 text-gray-900 text-center md:text-left">{title}</h3>
+          <p className="text-gray-500 mb-4 text-sm leading-relaxed text-center md:text-left">{description}</p>
           <div className="flex flex-wrap gap-2 mb-4 justify-center md:justify-start">
             {technologies.map((tech, index) => (
               <span
@@ -47,7 +47,7 @@ export default function ProjectCard({
               </span>
             ))}
           </div>
-          <div className="flex space-x-4 justify-center md:justify-start">
+          <div className="flex space-x-4">
             <a
               href={githubLink}
               target="_blank"
