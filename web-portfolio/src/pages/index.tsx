@@ -62,8 +62,8 @@ const LandingPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Navigation buttons - Adjust positioning for mobile */}
-      <div className="fixed top-[calc(33.333%+180px)] md:top-1/2 left-1/2 md:left-auto md:-translate-y-16 md:right-[25%] -translate-x-1/2 md:translate-x-0 flex gap-4 md:gap-6 z-20">
+      {/* All navigation links on one line for mobile, separate rows for desktop */}
+      <div className="fixed top-[calc(33.333%+180px)] md:top-1/2 left-1/2 md:left-auto md:-translate-y-16 md:right-[25%] -translate-x-1/2 md:translate-x-0 flex flex-wrap gap-3 md:gap-6 z-20 justify-center md:justify-start">
         <button
           onClick={() => router.push('/projects')}
           className="text-black text-[10px] md:text-xs hover:underline transition-all"
@@ -76,15 +76,11 @@ const LandingPage: React.FC = () => {
         >
           BLOG
         </button>
-      </div>
-
-      {/* Social/Contact links - Adjust positioning for mobile */}
-      <div className="fixed top-[calc(33.333%+220px)] md:top-1/2 left-1/2 md:left-auto md:translate-y-16 md:right-[25%] -translate-x-1/2 md:translate-x-0 flex gap-4 md:gap-6 z-20">
         <a
           href="https://github.com/brinzunza"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black text-[10px] md:text-xs hover:underline transition-all"
+          className="text-black text-[10px] md:text-xs hover:underline transition-all md:hidden"
         >
           GITHUB
         </a>
@@ -92,13 +88,39 @@ const LandingPage: React.FC = () => {
           href="https://linkedin.com/in/brunoinzunza"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-black text-[10px] md:text-xs hover:underline transition-all"
+          className="text-black text-[10px] md:text-xs hover:underline transition-all md:hidden"
         >
           LINKEDIN
         </a>
         <a
           href="mailto:bruno.inzunza24@gmail.com"
-          className="text-black text-[10px] md:text-xs hover:underline transition-all"
+          className="text-black text-[10px] md:text-xs hover:underline transition-all md:hidden"
+        >
+          EMAIL
+        </a>
+      </div>
+
+      {/* Social/Contact links - Desktop only (separate row) */}
+      <div className="hidden md:flex fixed top-1/2 translate-y-16 right-[25%] gap-6 z-20">
+        <a
+          href="https://github.com/brinzunza"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black text-xs hover:underline transition-all"
+        >
+          GITHUB
+        </a>
+        <a
+          href="https://linkedin.com/in/brunoinzunza"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-black text-xs hover:underline transition-all"
+        >
+          LINKEDIN
+        </a>
+        <a
+          href="mailto:bruno.inzunza24@gmail.com"
+          className="text-black text-xs hover:underline transition-all"
         >
           EMAIL
         </a>
