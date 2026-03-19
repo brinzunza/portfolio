@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 import { blogPosts } from '../data/blogPosts';
 
 const LandingPage: React.FC = () => {
   const router = useRouter();
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }));
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   // Get most recent project and blog post
   const projects = [
@@ -23,109 +40,103 @@ const LandingPage: React.FC = () => {
     .filter(post => post.id !== '9999')
     .sort((a, b) => Number(b.id) - Number(a.id))[0];
 
+  const interests = [
+    'software',
+    'data',
+    'ai',
+    'investing',
+    'frontend',
+    'backend',
+    'computer vision',
+    'trading',
+    'machine learning'
+  ];
+
   return (
-    <div className="relative w-screen h-screen bg-neutral-100 text-black font-sans overflow-hidden" style={{
-      backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
-      backgroundSize: '4px 4px'
-    }}>
-      {/* Bio description - top left corner */}
-      <div className="fixed top-4 left-4 md:top-16 md:left-12 text-[6px] md:text-[10px] tracking-wide text-white leading-tight max-w-[180px] md:max-w-xs z-10">
-        COLLEGE AND SELF-TAUGHT ENGINEER FOCUSED ON <span className="underline">SOFTWARE</span>, <span className="underline">DATA</span>, <span className="underline">AI</span>, AND <span className="underline">INVESTING</span>. CURRENTLY WORKING ON FRONTEND, BACKEND, DATABASE, COMPUTER VISION, TRADING, AND MACHINE LEARNING TECHNOLOGIES.
+    <div className="p-8 md:p-16 h-full flex items-center relative">
+      {/* Decorative time in top right */}
+      <div className="absolute top-8 right-8 md:top-16 md:right-16 text-xs font-mono text-black/20">
+        {currentTime}
       </div>
 
-      {/* Left half - Fullscreen Image - Full width on mobile, half on desktop */}
-      <div className="fixed left-0 top-0 w-full md:w-1/2 h-1/3 md:h-screen">
-        <img
-          src="/profile_pic.jpg"
-          alt="Bruno Inzunza"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Right half - All content - Bottom 2/3 on mobile, right half on desktop */}
-      <div className="fixed right-0 top-1/3 md:top-0 w-full md:w-1/2 h-2/3 md:h-screen flex items-center justify-center bg-neutral-100 md:bg-transparent" style={{
-        backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
-        backgroundSize: '4px 4px'
-      }}>
-        <div className="flex flex-col items-center gap-6">
-          {/* Navigation buttons - PROJECTS and BLOG */}
-          <div className="flex gap-4 md:gap-6">
-            <button
-              onClick={() => router.push('/projects')}
-              className="text-black text-[10px] md:text-xs hover:underline transition-all"
-            >
-              PROJECTS
-            </button>
-            <button
-              onClick={() => router.push('/blog')}
-              className="text-black text-[10px] md:text-xs hover:underline transition-all"
-            >
-              BLOG
-            </button>
+      {/* Main content */}
+      <div>
+        <div className="flex items-start gap-6 md:gap-8 mb-12">
+          <img
+            src="/profile_pic.jpg"
+            alt="Bruno Inzunza"
+            className="object-cover w-auto h-[6rem] md:h-[8.5rem]"
+          />
+          <div className="flex flex-col justify-between" style={{ lineHeight: 1 }}>
+            <h1 className="text-5xl md:text-7xl font-mono" style={{ lineHeight: 1 }}>
+              bruno
+            </h1>
+            <h1 className="text-5xl md:text-7xl font-mono" style={{ lineHeight: 1 }}>
+              inzunza
+            </h1>
           </div>
+        </div>
+
+        <div className="space-y-8 max-w-xl">
+          <p className="text-sm md:text-base text-black/60 leading-relaxed">
+            college and self-taught engineer focused on software, data, ai, and investing.
+            currently working on frontend, backend, database, computer vision, trading, and
+            machine learning technologies.
+          </p>
 
           {/* Social/Contact links */}
-          <div className="flex gap-4 md:gap-6">
+          <div className="flex gap-6 text-sm">
             <a
               href="https://github.com/brinzunza"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+              className="text-black/50 hover:text-black transition-all underline"
             >
-              GITHUB
+              github
             </a>
             <a
               href="https://linkedin.com/in/brunoinzunza"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+              className="text-black/50 hover:text-black transition-all underline"
             >
-              LINKEDIN
+              linkedin
             </a>
             <a
               href="mailto:bruno.inzunza24@gmail.com"
-              className="text-black text-[10px] md:text-xs hover:underline transition-all"
+              className="text-black/50 hover:text-black transition-all underline"
             >
-              EMAIL
+              email
             </a>
           </div>
 
-          {/* Text block - Title */}
-          <div className="flex flex-col items-start px-4 md:px-0 mt-6">
-            <div className="flex items-center font-bold text-[64px] md:text-[96px] leading-none">
-              <span className="mr-3 md:mr-5">B</span>
-              <div className="text-[8px] md:text-[10px] uppercase tracking-wider mt-2 md:mt-3 leading-tight">
-                <div>024</div>
-                <div>SOFTWARE ENGINEER</div>
-                <div>& DATA SCIENTIST</div>
-              </div>
-              <span className="ml-3 md:ml-5">I</span>
+          {/* Latest work section */}
+          <div className="pt-4">
+            <div className="h-px bg-black/10 mb-6"></div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <button
+                onClick={() => router.push(`/projects?id=${mostRecentProject.id}`)}
+                className="text-left group"
+              >
+                <h2 className="text-xs text-black/40 mb-2 font-mono">latest project</h2>
+                <p className="text-base group-hover:underline">
+                  {mostRecentProject.title}
+                </p>
+              </button>
+
+              <button
+                onClick={() => router.push(`/blog?id=${mostRecentBlog.id}`)}
+                className="text-left group"
+              >
+                <h2 className="text-xs text-black/40 mb-2 font-mono">latest writing</h2>
+                <p className="text-base group-hover:underline">
+                  {mostRecentBlog.title}
+                </p>
+              </button>
             </div>
-            <div className="text-[8px] md:text-[10px] mt-1 ml-2 md:ml-3">BRUNO.INZUNZA</div>
           </div>
         </div>
-      </div>
-
-      {/* Recent items - Stack vertically on mobile, horizontal on desktop */}
-      <div className="fixed bottom-8 md:bottom-20 left-1/2 md:left-3/4 -translate-x-1/2 flex flex-col md:flex-row gap-4 md:gap-8 z-20">
-        <button
-          onClick={() => router.push(`/projects?id=${mostRecentProject.id}`)}
-          className="flex flex-col items-center gap-1 md:gap-2 group"
-        >
-          <span className="text-[8px] md:text-[10px] text-black/60 uppercase tracking-wider">LATEST PROJECT</span>
-          <span className="text-[10px] md:text-xs text-black hover:underline lowercase text-center">
-            {mostRecentProject.title}
-          </span>
-        </button>
-        <button
-          onClick={() => router.push(`/blog?id=${mostRecentBlog.id}`)}
-          className="flex flex-col items-center gap-1 md:gap-2 group"
-        >
-          <span className="text-[8px] md:text-[10px] text-black/60 uppercase tracking-wider">LATEST WRITING</span>
-          <span className="text-[10px] md:text-xs text-black hover:underline lowercase text-center">
-            {mostRecentBlog.title}
-          </span>
-        </button>
       </div>
     </div>
   );

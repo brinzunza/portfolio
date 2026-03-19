@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
-import Navbar from '../components/Navbar';
 import { useRouter } from 'next/router';
 
-const projects = [
+export const projects = [
   {
     id: '9999',
     title: 'overview',
@@ -115,136 +114,99 @@ export default function Projects() {
   }, [selectedProject]);
 
   return (
-    <div className="min-h-screen bg-neutral-100" style={{
-      backgroundImage: 'radial-gradient(circle, rgba(0, 0, 0, 0.05) 1px, transparent 1px)',
-      backgroundSize: '4px 4px'
-    }}>
-      <Navbar />
-      <main className="flex flex-col md:flex-row h-screen pt-16 max-w-6xl mx-auto px-4 md:px-8">
-        {/* Left side - Project titles */}
-        <div className="w-full md:w-1/3 md:border-r border-b md:border-b-0 border-black/10 overflow-y-scroll scrollbar-hide md:pr-8 pb-4 md:pb-0">
-          <div className="py-4 md:py-8">
-            <h1 className="text-lg md:text-xl font-light tracking-tight text-black mb-4 md:mb-8">
-              PROJECTS
-            </h1>
-            <div className="space-y-2 md:space-y-4">
-              {projects.map((project) => (
-                <div
-                  key={project.id}
-                  onClick={() => setSelectedProject(project)}
-                  className={`cursor-pointer transition-colors duration-200 ${
-                    selectedProject.id === project.id
-                      ? 'text-black'
-                      : 'text-black/60 hover:text-black'
-                  }`}
-                >
-                  <h2 className="text-xs md:text-sm font-medium lowercase hover:underline">
-                    {project.title.toLowerCase()}
-                  </h2>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+    <div className="py-[25vh] px-8 md:px-16 scrollbar-hide">
+      <h1 className="text-2xl md:text-3xl font-mono mb-6">
+        {selectedProject.title}
+      </h1>
 
-        {/* Right side - Project readme content */}
-        <div className="w-full md:w-2/3 overflow-y-scroll scrollbar-hide md:pl-8">
-          <div className="py-4 md:py-8">
-            <h1 className="text-xl md:text-2xl font-medium text-black mb-3 md:mb-4">
-              {selectedProject.title}
-            </h1>
-            <div className="mb-4 md:mb-6">
-              <div className="flex flex-wrap gap-1.5 md:gap-2 mb-3 md:mb-4">
-                {selectedProject.tech.map((tech) => (
-                  <span key={tech} className="px-2 md:px-3 py-0.5 md:py-1 text-[10px] md:text-xs font-mono bg-black/5 text-black/80 border border-black/10">
-                    {tech}
-                  </span>
-                ))}
-              </div>
+      <div className="mb-8">
+        <div className="flex flex-wrap gap-2 mb-4">
+          {selectedProject.tech.map((tech) => (
+            <span key={tech} className="text-xs text-black/60">
+              {tech}
+            </span>
+          ))}
+        </div>
+        <a
+          href={selectedProject.code}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm text-black/60 hover:text-black hover:underline transition-all"
+        >
+          view code
+        </a>
+      </div>
+
+      <div className="prose prose-lg max-w-none">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
+          components={{
+            h1: ({ children }) => (
+              <h1 className="text-xl font-medium text-black mb-4">
+                {children}
+              </h1>
+            ),
+            h2: ({ children }) => (
+              <h2 className="text-lg font-medium text-black mb-3 mt-6">
+                {children}
+              </h2>
+            ),
+            h3: ({ children }) => (
+              <h3 className="text-base font-medium text-black mb-2 mt-4">
+                {children}
+              </h3>
+            ),
+            p: ({ children }) => (
+              <p className="mb-4 text-black/80 leading-relaxed">
+                {children}
+              </p>
+            ),
+            ul: ({ children }) => (
+              <ul className="mb-4 space-y-1 text-black/80 list-disc list-inside">
+                {children}
+              </ul>
+            ),
+            ol: ({ children }) => (
+              <ol className="mb-4 space-y-1 text-black/80 list-decimal list-inside">
+                {children}
+              </ol>
+            ),
+            li: ({ children }) => (
+              <li className="text-black/80">
+                {children}
+              </li>
+            ),
+            code: ({ children }) => (
+              <code className="bg-black/5 px-1 py-0.5 text-sm font-mono text-black/90">
+                {children}
+              </code>
+            ),
+            pre: ({ children }) => (
+              <pre className="bg-black/5 p-4 mb-4 overflow-x-auto">
+                {children}
+              </pre>
+            ),
+            blockquote: ({ children }) => (
+              <blockquote className="pl-4 mb-4 text-black/70 italic">
+                {children}
+              </blockquote>
+            ),
+            a: ({ href, children }) => (
               <a
-                href={selectedProject.code}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs md:text-sm text-black/60 hover:text-black hover:underline transition-all"
+                className="text-black hover:underline"
               >
-                <strong>
-               [ code ]
-               </strong>
+                {children}
               </a>
-            </div>
-            <div className="prose prose-lg max-w-none font-sans">
-              <ReactMarkdown
-                remarkPlugins={[remarkGfm]}
-                rehypePlugins={[rehypeRaw]}
-                components={{
-                  h1: ({ children }) => (
-                    <h1 className="text-xl font-medium text-black mb-4 lowercase">
-                      {children}
-                    </h1>
-                  ),
-                  h2: ({ children }) => (
-                    <h2 className="text-lg font-medium text-black mb-3 mt-6 lowercase">
-                      {children}
-                    </h2>
-                  ),
-                  h3: ({ children }) => (
-                    <h3 className="text-base font-medium text-black mb-2 mt-4 lowercase">
-                      {children}
-                    </h3>
-                  ),
-                  p: ({ children }) => (
-                    <p className="mb-4 text-black/80 leading-relaxed lowercase">
-                      {children}
-                    </p>
-                  ),
-                  ul: ({ children }) => (
-                    <ul className="mb-4 space-y-1 text-black/80 lowercase">
-                      {children}
-                    </ul>
-                  ),
-                  ol: ({ children }) => (
-                    <ol className="mb-4 space-y-1 text-black/80 lowercase list-decimal list-inside">
-                      {children}
-                    </ol>
-                  ),
-                  li: ({ children }) => (
-                    <li className="text-black/80 lowercase">
-                      {children}
-                    </li>
-                  ),
-                  code: ({ children }) => (
-                    <code className="bg-black/5 px-1 py-0.5 text-sm font-mono text-black/90 border border-black/10">
-                      {children}
-                    </code>
-                  ),
-                  pre: ({ children }) => (
-                    <pre className="bg-black/5 p-4 mb-4 overflow-x-auto border border-black/10">
-                      {children}
-                    </pre>
-                  ),
-                  blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 border-black/30 pl-4 mb-4 text-black/70 italic lowercase">
-                      {children}
-                    </blockquote>
-                  ),
-                  a: ({ href, children }) => (
-                    <a
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-black hover:underline lowercase"
-                    >
-                      {children}
-                    </a>
-                  ),
-                }}
-              >
-                {readmeContent}
-              </ReactMarkdown>
-            </div>
-          </div>
-        </div>
-      </main>
+            ),
+          }}
+        >
+          {readmeContent}
+        </ReactMarkdown>
+      </div>
     </div>
   );
 } 
