@@ -1,5 +1,6 @@
 import { Github } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface ProjectCardProps {
   title: string;
@@ -28,9 +29,11 @@ export default function ProjectCard({
         onMouseLeave={() => setIsHovered(false)}
       >
         <div className="relative group h-1/2 md:h-auto">
-          <img
+          <Image
             src={image}
             alt={title}
+            width={800}
+            height={400}
             className="w-full h-full md:h-48 object-cover"
           />
         </div>
@@ -67,10 +70,13 @@ export default function ProjectCard({
           isHovered ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'
         }`}
       >
-        <img 
+        <Image 
           src={gif} 
           alt={`${title} demo`} 
+          width={400}
+          height={300}
           className="w-full h-full object-contain"
+          unoptimized={gif.endsWith('.gif')}
         />
       </div>
     </>

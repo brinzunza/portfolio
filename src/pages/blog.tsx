@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { blogPosts } from '../data/blogPosts';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import { useRouter } from 'next/router';
+
+const MarkdownRenderer = dynamic(() => import('../components/MarkdownRenderer'), { 
+  ssr: false,
+  loading: () => <div className="animate-pulse h-64 bg-black/5 rounded" />
+});
+
 
 export default function Blog() {
   const router = useRouter();
@@ -43,14 +48,7 @@ export default function Blog() {
         {selectedPost.date}
       </p>
       <div className="prose prose-lg max-w-none">
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          components={{
-            p: ({ node, ...props }) => <p className="mb-4 text-black/80 leading-relaxed" {...props} />
-          }}
-        >
-          {selectedPost.content}
-        </ReactMarkdown>
+        <MarkdownRenderer content={selectedPost.content} />
       </div>
     </div>
   );

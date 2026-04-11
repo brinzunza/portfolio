@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from 'next/router';
 import { blogPosts } from '../data/blogPosts';
 
@@ -62,10 +63,13 @@ const LandingPage: React.FC = () => {
       {/* Main content */}
       <div>
         <div className="flex items-start gap-6 md:gap-8 mb-12">
-          <img
+          <Image
             src="/profile_pic.jpg"
             alt="Bruno Inzunza"
+            width={136}
+            height={136}
             className="object-cover w-auto h-[6rem] md:h-[8.5rem]"
+            priority
           />
           <div className="flex flex-col justify-between" style={{ lineHeight: 1 }}>
             <h1 className="text-5xl md:text-7xl font-mono" style={{ lineHeight: 1 }}>
