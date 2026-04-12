@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useReading } from '../context/ReadingContext';
 
@@ -24,11 +25,12 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
             {/* Scaled down profile image */}
-            <div className="w-[40px] h-[40px] object-cover">
-              <img
+            <div className="w-[40px] h-[40px] relative">
+              <Image
                 src="/profile_pic.jpg"
                 alt="Bruno Inzunza"
-                className="w-full h-full object-cover rounded-full"
+                fill
+                className="object-cover rounded-full"
               />
             </div>
           </Link>

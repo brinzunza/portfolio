@@ -41,18 +41,6 @@ const LandingPage: React.FC = () => {
     .filter(post => post.id !== '9999')
     .sort((a, b) => Number(b.id) - Number(a.id))[0];
 
-  const interests = [
-    'software',
-    'data',
-    'ai',
-    'investing',
-    'frontend',
-    'backend',
-    'computer vision',
-    'trading',
-    'machine learning'
-  ];
-
   return (
     <div className="p-8 md:p-16 h-full flex items-center relative">
       {/* Decorative time in top right */}
