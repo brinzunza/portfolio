@@ -6,6 +6,7 @@ import { blogPosts } from '../data/blogPosts';
 const LandingPage: React.FC = () => {
   const router = useRouter();
   const [currentTime, setCurrentTime] = useState('');
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const updateTime = () => {
@@ -22,6 +23,17 @@ const LandingPage: React.FC = () => {
     const interval = setInterval(updateTime, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleEmailClick = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    try {
+      await navigator.clipboard.writeText('bruno.inzunza24@gmail.com');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
 
   // Get most recent project and blog post
   const projects = [
@@ -95,11 +107,27 @@ const LandingPage: React.FC = () => {
               linkedin
             </a>
             <a
-              href="mailto:bruno.inzunza24@gmail.com"
+              href="https://x.com/brinzunza"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-black/50 hover:text-black transition-all underline"
             >
-              email
+              X
             </a>
+            <a
+              href="https://monkeytype.com/profile/brinzunza"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black/50 hover:text-black transition-all underline"
+            >
+              typing
+            </a>
+            <button
+              onClick={handleEmailClick}
+              className="text-black/50 hover:text-black transition-all underline relative"
+            >
+              {copied ? 'copied!' : 'email'}
+            </button>
           </div>
 
           {/* Latest work section */}
