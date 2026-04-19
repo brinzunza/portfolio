@@ -12,17 +12,13 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
   const router = useRouter();
   const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [writingExpanded, setWritingExpanded] = useState(false);
-  const [projectsEverOpened, setProjectsEverOpened] = useState(false);
-  const [writingEverOpened, setWritingEverOpened] = useState(false);
 
   // Automatically expand sections based on current route
   useEffect(() => {
     if (router.pathname === '/projects' || router.pathname === '/projects/all') {
       setProjectsExpanded(true);
-      setProjectsEverOpened(true);
     } else if (router.pathname === '/blog' || router.pathname === '/blog/all') {
       setWritingExpanded(true);
-      setWritingEverOpened(true);
     }
   }, [router.pathname]);
 
@@ -65,11 +61,16 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
           <div>
             <button
               onClick={() => {
-                if (!projectsEverOpened) {
+                const isInProjectsSection = router.pathname === '/projects';
+
+                if (isInProjectsSection && projectsExpanded) {
+                  // Case 1: In section and open -> just close
+                  setProjectsExpanded(false);
+                } else {
+                  // Cases 2, 3, 4: Navigate to overview and ensure expanded
                   setProjectsExpanded(true);
-                  setProjectsEverOpened(true);
+                  router.push('/projects?id=9999');
                 }
-                router.push('/projects?id=9999');
               }}
               className={`block py-2 transition-all text-right w-full ${
                 isActive('/projects') ? 'text-black' : 'text-black/40 hover:text-black'
@@ -77,7 +78,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
             >
               projects
             </button>
-            {(projectsExpanded || projectsEverOpened) && projects.length > 0 && (
+            {projectsExpanded && projects.length > 0 && (
               <ul className="mr-4 mt-1 space-y-1">
                 {visibleProjects.map((project) => (
                   <li key={project.id}>
@@ -115,11 +116,16 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
           <div>
             <button
               onClick={() => {
-                if (!writingEverOpened) {
+                const isInBlogSection = router.pathname === '/blog';
+
+                if (isInBlogSection && writingExpanded) {
+                  // Case 1: In section and open -> just close
+                  setWritingExpanded(false);
+                } else {
+                  // Cases 2, 3, 4: Navigate to overview and ensure expanded
                   setWritingExpanded(true);
-                  setWritingEverOpened(true);
+                  router.push('/blog?id=9999');
                 }
-                router.push('/blog?id=9999');
               }}
               className={`block py-2 transition-all text-right w-full ${
                 isActive('/blog') ? 'text-black' : 'text-black/40 hover:text-black'
@@ -127,7 +133,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
             >
               writing
             </button>
-            {(writingExpanded || writingEverOpened) && (
+            {writingExpanded && (
               <ul className="mr-4 mt-1 space-y-1">
                 {visiblePosts.map((post) => (
                   <li key={post.id}>
