@@ -15,11 +15,11 @@ Rather than give up, I turned back to how I resolved my original trading issue, 
 
 With this formula, we can constantly make ticks for multiple ticker types. Then to connect it to my algorithmic trading code, we can implement an API/Websocket connection. This way I can continue to use the algorithmic trading whether I use a real market data API or this synthetic data API. 
 
-Upon testing, I figured it had consequently solved problems I had not preplanned. 
+Upon testing, I figured it had consequently solved problems I had not preplanned.
 
-- - **First**, it solved the cost problem. The creation of synthetic data allows me to avoid having to pay the expensive subscription of industry plans.
-- - **Second**, it solved the time problem. While most financial markets have scheduled times when they are closed and do not allow trading or do not have enough volume, the synthetic data can run consistently 24/7 (which should be considered when testing and reverting to real data).
-- - **Third**, it solved the variety problem. While most subscriptions only give you access to one ticker or financial market, this synthetic data can generate data movement among a variety of different markets with different movements, prices, and spreads.
-- - **Fourth**, it solved limits in the range of data. While most historical data has a limit to how far back in the past you can retrieve data, it can result in overfitting. Creating synthetic data constantly creates new data unseen, random data which easily prevents this.
-- - **Fifth**, it solves the data consistency problem. While some have subscriptions with multiple data providers to fill all of their needs, it can result with different data schemas and completeness. Having synthetic data gives you the control to keep things consistent and running only when you need it to.
-- - **Sixth**, it solves the rate limiting problem. Due to high usage, many firms have a rate limit for users. This can be a bottleneck for those seeking very low latency and high requests for data. With full control over your own data, rate limiting can be configured to any limit, allowing for proper adaptability to any strategy.
+- **First**, it solved the cost problem. The creation of synthetic data allows me to avoid having to pay the expensive subscription of industry plans.
+- **Second**, it solved the time problem. While most financial markets have scheduled times when they are closed and do not allow trading or do not have enough volume, the synthetic data can run consistently 24/7 (which should be considered when testing and reverting to real data).
+- **Third**, it solved the variety problem. While most subscriptions only give you access to one ticker or financial market, this synthetic data can generate data movement among a variety of different markets with different movements, prices, and spreads.
+- **Fourth**, it solved limits in the range of data. While most historical data has a limit to how far back in the past you can retrieve data, it can result in overfitting. Creating synthetic data constantly creates new data unseen, random data which easily prevents this.
+- **Fifth**, it solves the data consistency problem. While some have subscriptions with multiple data providers to fill all of their needs, it can result with different data schemas and completeness. Having synthetic data gives you the control to keep things consistent and running only when you need it to.
+- **Sixth**, it solves the rate limiting problem. Due to high usage, many firms have a rate limit for users. This can be a bottleneck for those seeking very low latency and high requests for data. With full control over your own data, rate limiting can be configured to any limit, allowing for proper adaptability to any strategy.

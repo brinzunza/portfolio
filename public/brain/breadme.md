@@ -7,19 +7,18 @@ The reality is we're drowning in information while simultaneously forgetting eve
 </div>
 The current state of our personal knowledge breaks down into three critical problems:
 
-## 
 1. Fragmentation: Our knowledge is scattered everywhere. Notes on paper, on Apple notes, highlights in books, pdf files, text messages, random thoughts, and many more. Crucial thoughts, ideas, and understanding is lost due to the lack of organization of all of this data.
 
-2. Retrieval: Even when we’ve saved all of our information, finding it becomes a nightmare. Traditional search on different applications is based on filtering for exact keywords. Then you have to manually search through different files or text to actually find the answer you’re looking for, if it’s even there. You can’t ask natural questions like "what was that health insight I read last month?" or "did I ever learn about vector databases?" The friction becomes too high to the point where they would rather re-research things rather than finding what they already know. 
+2. Retrieval: Even when we've saved all of our information, finding it becomes a nightmare. Traditional search on different applications is based on filtering for exact keywords. Then you have to manually search through different files or text to actually find the answer you're looking for, if it's even there. You can't ask natural questions like "what was that health insight I read last month?" or "did I ever learn about vector databases?" The friction becomes too high to the point where they would rather re-research things rather than finding what they already know.
 
-3. Knowledge synthesization: Most note taking apps and other sources of documents and ideas or glorified file cabinets. They store information but don’t understand it. You can’t synthesize information across different sources and be able to draw connections for complex questions. These tools can’t think about your knowledge; they solely store it. 
-    
+3. Knowledge synthesization: Most note taking apps and other sources of documents and ideas or glorified file cabinets. They store information but don't understand it. You can't synthesize information across different sources and be able to draw connections for complex questions. These tools can't think about your knowledge; they solely store it.
+
 <div style="margin-bottom: 20px;">
   <img src="/brain/workflow.png" alt="Math" width="100%" style="display: block;"/>
 </div>
 
 The solution? Combining computer power to ease the computation and storage from our brains. The future is trending towards the intersection because humans and computers and this approach is proving why that is true. This is a system that knows what you know, remembers what you've forgotten, and can synthesize your accumulated knowledge on demand without compromising privacy. brain directly solves these problems by providing a minimal, self-hosted, AI-powered personal memory system that stores anything you tell it and answers questions by understanding the semantic meaning of your data.
-## 
+
 brain implements Retrieval-Augmented Generation (RAG), a technique that's become the gold standard for building AI systems that answer questions based on specific knowledge bases.
 
 Example:

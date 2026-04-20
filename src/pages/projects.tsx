@@ -93,6 +93,12 @@ export default function Projects() {
         const project = projects.find(p => p.id === id);
         if (project) {
           setSelectedProject(project);
+          // Scroll to top when project changes
+          // The scrollable container is the main element, not window
+          const mainElement = document.querySelector('main');
+          if (mainElement) {
+            mainElement.scrollTop = 0;
+          }
         }
       }
     }

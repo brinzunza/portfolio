@@ -34,6 +34,12 @@ export default function Blog() {
         const post = blogPosts.find(p => p.id === id);
         if (post) {
           setSelectedPost(post);
+          // Scroll to top when post changes
+          // The scrollable container is the main element, not window
+          const mainElement = document.querySelector('main');
+          if (mainElement) {
+            mainElement.scrollTop = 0;
+          }
         }
       }
     }
