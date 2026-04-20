@@ -33,12 +33,12 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
           </p>
         ),
         ul: ({ children }) => (
-          <ul className="mb-4 space-y-1 text-black/80 list-disc list-inside">
+          <ul className="mb-4 space-y-1 text-black/80 list-disc ml-6">
             {children}
           </ul>
         ),
         ol: ({ children }) => (
-          <ol className="mb-4 space-y-1 text-black/80 list-decimal list-inside">
+          <ol className="mb-4 space-y-1 text-black/80 list-decimal ml-6">
             {children}
           </ol>
         ),
