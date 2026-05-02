@@ -4,11 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useReading } from '../context/ReadingContext';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const { isReading } = useReading();
+  const { t } = useLanguage();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -39,13 +41,13 @@ export default function Navbar() {
               href="/"
               className={`${isActive('/') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
-              HOME
+              {t('nav.home')}
             </Link>
             <Link
               href="/projects"
               className={`${isActive('/projects') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
-              PROJECTS
+              {t('nav.projects')}
             </Link>
             {/* <Link
               href="/skills"
@@ -57,7 +59,7 @@ export default function Navbar() {
               href="/blog"
               className={`${isActive('/blog') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 text-sm font-mono font-medium hover:underline cursor-default`}
             >
-              BLOG
+              {t('nav.blog')}
             </Link>
           </div>
           <div className="md:hidden flex items-center">
@@ -81,19 +83,19 @@ export default function Navbar() {
               href="/"
               className={`block ${isActive('/') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
-              HOME
+              {t('nav.home')}
             </Link>
             <Link
               href="/projects"
               className={`block ${isActive('/projects') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
-              PROJECTS
+              {t('nav.projects')}
             </Link>
             <Link
               href="/blog"
               className={`block ${isActive('/blog') ? 'text-black' : 'text-black/60'} hover:text-black transition-colors duration-200 py-2 text-sm font-mono font-medium`}
             >
-              BLOG
+              {t('nav.blog')}
             </Link>
           </div>
         </div>

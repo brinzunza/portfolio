@@ -4,6 +4,16 @@ import { blogPosts } from '../../data/blogPosts';
 export default function AllBlog() {
   const router = useRouter();
 
+  // Convert "Month Day, Year" to "day month year"
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.toLocaleString('en-US', { month: 'long' }).toLowerCase();
+    const year = date.getFullYear();
+    return `${day} ${month} ${year}`;
+  };
+
   return (
     <div className="py-[25vh] px-8 md:px-16 scrollbar-hide">
       <h1 className="text-2xl md:text-3xl font-mono mb-8">
@@ -21,7 +31,7 @@ export default function AllBlog() {
               {post.title}
             </h2>
             <p className="text-sm text-black/60">
-              {post.date}
+              {formatDate(post.date)}
             </p>
           </button>
         ))}

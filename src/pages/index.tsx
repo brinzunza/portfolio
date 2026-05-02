@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import { blogPosts } from '../data/blogPosts';
+import { useLanguage } from '../context/LanguageContext';
+import { Check } from 'lucide-react';
 
 const LandingPage: React.FC = () => {
   const router = useRouter();
+  const { language, setLanguage, t } = useLanguage();
   const [currentTime, setCurrentTime] = useState('');
   const [copied, setCopied] = useState(false);
 
@@ -54,7 +57,7 @@ const LandingPage: React.FC = () => {
     .sort((a, b) => Number(b.id) - Number(a.id))[0];
 
   return (
-    <div className="p-8 md:p-16 h-full flex items-center relative">
+    <div className="p-8 md:p-16 h-full flex flex-col justify-center relative overflow-hidden">
       {/* Decorative time in top right */}
       <div className="absolute top-8 right-8 md:top-16 md:right-16 text-xs font-mono text-black/20">
         {currentTime}
@@ -83,51 +86,73 @@ const LandingPage: React.FC = () => {
 
         <div className="space-y-8 max-w-xl">
           <p className="text-sm md:text-base text-black/60 leading-relaxed">
-            college and self-taught engineer focused on software, data, ai, and investing.
-            currently working on frontend, backend, database, computer vision, trading, and
-            machine learning technologies.
+            {t('home.bio')}
           </p>
 
-          {/* Social/Contact links */}
-          <div className="flex gap-6 text-sm">
-            <a
-              href="https://github.com/brinzunza"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black/50 hover:text-black transition-all underline"
-            >
-              github
-            </a>
-            <a
-              href="https://linkedin.com/in/brunoinzunza"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black/50 hover:text-black transition-all underline"
-            >
-              linkedin
-            </a>
-            <a
-              href="https://x.com/brinzunza"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black/50 hover:text-black transition-all underline"
-            >
-              X
-            </a>
-            <a
-              href="https://monkeytype.com/profile/brinzunza"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-black/50 hover:text-black transition-all underline"
-            >
-              typing
-            </a>
-            <button
-              onClick={handleEmailClick}
-              className="text-black/50 hover:text-black transition-all underline relative"
-            >
-              {copied ? 'copied!' : 'email'}
-            </button>
+          {/* Social/Contact links and Language toggle */}
+          <div className="flex justify-between items-center gap-6 text-sm">
+            <div className="flex gap-6">
+              <a
+                href="https://github.com/brinzunza"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black/50 hover:text-black transition-all underline"
+              >
+                github
+              </a>
+              <a
+                href="https://linkedin.com/in/brunoinzunza"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black/50 hover:text-black transition-all underline"
+              >
+                linkedin
+              </a>
+              <a
+                href="https://x.com/brinzunza"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black/50 hover:text-black transition-all underline"
+              >
+                X
+              </a>
+              <a
+                href="https://monkeytype.com/profile/brinzunza"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black/50 hover:text-black transition-all underline"
+              >
+                typing
+              </a>
+              <button
+                onClick={handleEmailClick}
+                className="text-black/50 hover:text-black transition-all underline relative"
+              >
+                {copied ? t('home.copied') : t('home.email')}
+              </button>
+            </div>
+
+            {/* Language toggle */}
+            <div className="flex flex-col gap-2 items-end">
+              <button
+                onClick={() => setLanguage('en')}
+                className={`${
+                  language === 'en' ? 'text-black' : 'text-black/50'
+                } hover:text-black transition-all underline flex items-center gap-1`}
+              >
+                {language === 'en' && <Check size={14} />}
+                english
+              </button>
+              <button
+                onClick={() => setLanguage('es')}
+                className={`${
+                  language === 'es' ? 'text-black' : 'text-black/50'
+                } hover:text-black transition-all underline flex items-center gap-1`}
+              >
+                {language === 'es' && <Check size={14} />}
+                español
+              </button>
+            </div>
           </div>
 
           {/* Latest work section */}
@@ -139,7 +164,7 @@ const LandingPage: React.FC = () => {
                 onClick={() => router.push(`/projects?id=${mostRecentProject.id}`)}
                 className="text-left group"
               >
-                <h2 className="text-xs text-black/40 mb-2 font-mono">latest project</h2>
+                <h2 className="text-xs text-black/40 mb-2 font-mono">{t('home.latestProject')}</h2>
                 <p className="text-base group-hover:underline">
                   {mostRecentProject.title}
                 </p>
@@ -149,7 +174,7 @@ const LandingPage: React.FC = () => {
                 onClick={() => router.push(`/blog?id=${mostRecentBlog.id}`)}
                 className="text-left group"
               >
-                <h2 className="text-xs text-black/40 mb-2 font-mono">latest writing</h2>
+                <h2 className="text-xs text-black/40 mb-2 font-mono">{t('home.latestWriting')}</h2>
                 <p className="text-base group-hover:underline">
                   {mostRecentBlog.title}
                 </p>

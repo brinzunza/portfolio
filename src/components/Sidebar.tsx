@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { blogPosts } from '../data/blogPosts';
+import { useLanguage } from '../context/LanguageContext';
 
 interface SidebarProps {
   projects?: Array<{ id: string; title: string }>;
@@ -10,6 +11,7 @@ interface SidebarProps {
 
 export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) {
   const router = useRouter();
+  const { t } = useLanguage();
   const [projectsExpanded, setProjectsExpanded] = useState(false);
   const [writingExpanded, setWritingExpanded] = useState(false);
 
@@ -52,7 +54,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
               isActive('/') ? 'text-black' : 'text-black/40 hover:text-black'
             }`}
           >
-            home
+            {t('sidebar.home')}
           </Link>
         </li>
 
@@ -76,7 +78,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
                 isActive('/projects') ? 'text-black' : 'text-black/40 hover:text-black'
               }`}
             >
-              projects
+              {t('sidebar.projects')}
             </button>
             {projectsExpanded && projects.length > 0 && (
               <ul className="mr-4 mt-1 space-y-1">
@@ -102,7 +104,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
                       onClick={handleNavClick}
                       className="block py-1 text-sm font-bold underline transition-all text-black/30 hover:text-black"
                     >
-                      see more...
+                      {t('sidebar.seeMore')}
                     </Link>
                   </li>
                 )}
@@ -131,7 +133,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
                 isActive('/blog') ? 'text-black' : 'text-black/40 hover:text-black'
               }`}
             >
-              writing
+              {t('sidebar.writing')}
             </button>
             {writingExpanded && (
               <ul className="mr-4 mt-1 space-y-1">
@@ -157,7 +159,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
                       onClick={handleNavClick}
                       className="block py-1 text-sm font-bold underline transition-all text-black/30 hover:text-black"
                     >
-                      see more...
+                      {t('sidebar.seeMore')}
                     </Link>
                   </li>
                 )}

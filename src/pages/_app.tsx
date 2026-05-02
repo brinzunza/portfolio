@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ReadingProvider } from '../context/ReadingContext';
+import { LanguageProvider } from '../context/LanguageContext';
 import Layout from '../components/Layout';
 import { projects } from './projects';
 
@@ -23,11 +24,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <div className={`${inter.variable} ${jetbrainsMono.variable} font-sans`}>
-      <ReadingProvider>
-        <Layout projects={projectsData}>
-          <Component {...pageProps} />
-        </Layout>
-      </ReadingProvider>
+      <LanguageProvider>
+        <ReadingProvider>
+          <Layout projects={projectsData}>
+            <Component {...pageProps} />
+          </Layout>
+        </ReadingProvider>
+      </LanguageProvider>
     </div>
   );
 }
