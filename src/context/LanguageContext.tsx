@@ -13,7 +13,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations: Record<Language, Record<string, string>> = {
   en: {
     // Home page
-    'home.bio': 'College and self-taught engineer focused on software, data, AI, and investing. Currently working on frontend, backend, database, computer vision, trading, and machine learning technologies.',
+    'home.bio': 'College and self-taught engineer focused on software, data, AI, and investing. Currently working on backend, database, computer vision, trading, and machine learning technologies.',
     'home.latestProject': 'recent project',
     'home.latestWriting': 'recent thought',
     'home.email': 'email',
@@ -32,7 +32,7 @@ const translations: Record<Language, Record<string, string>> = {
   },
   es: {
     // Home page
-    'home.bio': 'Ingeniero universitario y autodidacta enfocado en software, datos, IA e inversiones. Actualmente trabajando en tecnologías de frontend, backend, bases de datos, visión por computadora, trading y aprendizaje automático.',
+    'home.bio': 'Ingeniero universitario y autodidacta enfocado en software, datos, IA e inversiones. Actualmente trabajando en tecnologías de backend, bases de datos, visión por computadora, trading y aprendizaje automático.',
     'home.latestProject': 'proyecto más reciente',
     'home.latestWriting': 'pensamiento más reciente',
     'home.email': 'correo',
