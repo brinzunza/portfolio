@@ -17,9 +17,9 @@ The current state of our personal knowledge breaks down into three critical prob
   <img src="/brain/workflow.png" alt="Math" width="100%" style="display: block;"/>
 </div>
 
-The solution? Combining computer power to ease the computation and storage from our brains. The future is trending towards the intersection because humans and computers and this approach is proving why that is true. This is a system that knows what you know, remembers what you've forgotten, and can synthesize your accumulated knowledge on demand without compromising privacy. brain directly solves these problems by providing a minimal, self-hosted, AI-powered personal memory system that stores anything you tell it and answers questions by understanding the semantic meaning of your data.
+The solution? Combining computer power to ease the computation and storage from our brains. The future is trending towards the intersection because humans and computers and this approach is proving why that is true. This is a system that knows what you know, remembers what you've forgotten, and can synthesize your accumulated knowledge on demand without compromising privacy. Brain directly solves these problems by providing a minimal, self-hosted, AI-powered personal memory system that stores anything you tell it and answers questions by understanding the semantic meaning of your data.
 
-brain implements Retrieval-Augmented Generation (RAG), a technique that's become the gold standard for building AI systems that answer questions based on specific knowledge bases.
+Brain implements Retrieval-Augmented Generation (RAG), a technique that's become the gold standard for building AI systems that answer questions based on specific knowledge bases.
 
 Example:
 
@@ -38,7 +38,7 @@ Context is everything. When a query is made, we need to get all the proper conte
 </div>
 Data privacy is at the root of most skeptics. We solved this.
 
-brain prioritizes data sovereignty:
+Brain prioritizes data sovereignty:
 
 Local-First Architecture:
 
@@ -58,7 +58,7 @@ Use Cases with different input types:
 <div style="margin-bottom: 20px;">
   <img src="/brain/interface.png" alt="Math" width="100%" style="display: block;"/>
 </div>
-brain shines in specific scenarios:
+Brain shines in specific scenarios:
 
 Personal Knowledge Base:
 
@@ -96,7 +96,7 @@ Learning Journal:
 - Ask "how does attention mechanism work in transformers?"
 - Get YOUR explanation back, in YOUR words
 
-brain makes deliberate tradeoffs:
+Brain makes deliberate tradeoffs:
 
 No Conversation Memory:
 

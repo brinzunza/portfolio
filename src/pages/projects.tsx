@@ -20,7 +20,7 @@ export const projects = [
   {
     id: '1',
     title: 'bruninvestor algorithmic trading',
-    description: 'designed and implemented an algorithmic trading system. fully backtested with custom strategies.',
+    description: 'Designed and implemented an algorithmic trading system. Fully backtested with custom strategies.',
     code: 'https://github.com/brinzunza/BAT',
     tech: ['python', 'trading'],
     readmeFile: '/bat-trading/batreadme.md',
@@ -28,7 +28,7 @@ export const projects = [
   {
     id: '2',
     title: 'practice debugging',
-    description: 'developed a web-based platform that allows developers to practice and enhance debugging skills by solving simulated problems.',
+    description: 'Developed a web-based platform that allows developers to practice and enhance debugging skills by solving simulated problems.',
     code: 'https://github.com/brinzunza/practicedebugging',
     tech: ['react'],
     readmeFile: '/practice-debugging/pdreadme.md',
@@ -36,7 +36,7 @@ export const projects = [
   {
     id: '3',
     title: 'rag chatbot',
-    description: 'developed a retrieval-augmented generation (rag) chatbot capable of answering questions from any pdf documents.',
+    description: 'Developed a retrieval-augmented generation (RAG) chatbot capable of answering questions from any PDF documents.',
     code: 'https://github.com/brinzunza/ragchatbot',
     tech: ['python', 'langchain', 'llm'],
     readmeFile: '/rag-chatbot/ragreadme.md',
@@ -44,7 +44,7 @@ export const projects = [
   {
     id: '4',
     title: 'you are wrong',
-    description: 'created a real-time debate assistant leveraging mixed reality for immersive and interactive argumentation analysis.',
+    description: 'Created a real-time debate assistant leveraging mixed reality for immersive and interactive argumentation analysis.',
     code: 'https://github.com/brinzunza/youarewrongAR',
     tech: ['XR', 'CV'],
     readmeFile: '/you-are-wrong/urwreadme.md',
@@ -52,7 +52,7 @@ export const projects = [
   {
     id: '5',
     title: 'brain',
-    description: 'created a program to remember information you want to later recall',
+    description: 'Created a program to remember information you want to later recall',
     code: 'https://github.com/brinzunza/brain',
     tech: ['vdb', 'python', 'react'],
     readmeFile: '/brain/breadme.md',
@@ -60,7 +60,7 @@ export const projects = [
   {
     id: '6',
     title: 'synthetic market data engine',
-    description: 'created an engine that generates synthetic market data which can be accessed through api',
+    description: 'Created an engine that generates synthetic market data which can be accessed through API',
     code: 'https://github.com/brinzunza/market_data_engine',
     tech: ['python', 'docker', 'kafka'],
     readmeFile: '/market-data-api/mdreadme.md',

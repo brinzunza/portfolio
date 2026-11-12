@@ -17,7 +17,7 @@ export default function AllBlog() {
   return (
     <div className="py-[25vh] px-8 md:px-16 scrollbar-hide">
       <h1 className="text-2xl md:text-3xl font-mono mb-8">
-        all writing
+        all thoughts
       </h1>
 
       <div className="space-y-6 max-w-2xl">

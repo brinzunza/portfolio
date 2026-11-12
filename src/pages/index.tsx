@@ -57,7 +57,7 @@ const LandingPage: React.FC = () => {
     .sort((a, b) => Number(b.id) - Number(a.id))[0];
 
   return (
-    <div className="p-8 md:p-16 h-full flex flex-col justify-center relative overflow-hidden">
+    <div className="px-8 md:px-16 pt-[calc(25vh+0.5rem)] pb-16 relative">
       {/* Decorative time in top right */}
       <div className="absolute top-8 right-8 md:top-16 md:right-16 text-xs font-mono text-black/20">
         {currentTime}

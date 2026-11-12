@@ -13,9 +13,9 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations: Record<Language, Record<string, string>> = {
   en: {
     // Home page
-    'home.bio': 'college and self-taught engineer focused on software, data, ai, and investing. currently working on frontend, backend, database, computer vision, trading, and machine learning technologies.',
-    'home.latestProject': 'latest project',
-    'home.latestWriting': 'latest writing',
+    'home.bio': 'College and self-taught engineer focused on software, data, AI, and investing. Currently working on frontend, backend, database, computer vision, trading, and machine learning technologies.',
+    'home.latestProject': 'recent project',
+    'home.latestWriting': 'recent thought',
     'home.email': 'email',
     'home.copied': 'copied!',
 
@@ -27,14 +27,14 @@ const translations: Record<Language, Record<string, string>> = {
     // Sidebar
     'sidebar.home': 'home',
     'sidebar.projects': 'projects',
-    'sidebar.writing': 'writing',
+    'sidebar.writing': 'thoughts',
     'sidebar.seeMore': 'see more...',
   },
   es: {
     // Home page
-    'home.bio': 'ingeniero universitario y autodidacta enfocado en software, datos, ia e inversiones. actualmente trabajando en tecnologías de frontend, backend, bases de datos, visión por computadora, trading y aprendizaje automático.',
+    'home.bio': 'Ingeniero universitario y autodidacta enfocado en software, datos, IA e inversiones. Actualmente trabajando en tecnologías de frontend, backend, bases de datos, visión por computadora, trading y aprendizaje automático.',
     'home.latestProject': 'proyecto más reciente',
-    'home.latestWriting': 'escrito más reciente',
+    'home.latestWriting': 'pensamiento más reciente',
     'home.email': 'correo',
     'home.copied': '¡copiado!',
 
@@ -46,7 +46,7 @@ const translations: Record<Language, Record<string, string>> = {
     // Sidebar
     'sidebar.home': 'inicio',
     'sidebar.projects': 'proyectos',
-    'sidebar.writing': 'escritos',
+    'sidebar.writing': 'pensamientos',
     'sidebar.seeMore': 'ver más...',
   }
 };
