@@ -50,7 +50,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
           <Link
             href="/"
             onClick={handleNavClick}
-            className={`block py-2 transition-all ${
+            className={`block py-2 font-roundel transition-all ${
               isActive('/') ? 'text-black' : 'text-black/40 hover:text-black'
             }`}
           >
@@ -74,7 +74,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
                   router.push('/projects?id=9999');
                 }
               }}
-              className={`block py-2 transition-all text-right w-full ${
+              className={`block py-2 font-roundel transition-all text-right w-full ${
                 isActive('/projects') ? 'text-black' : 'text-black/40 hover:text-black'
               }`}
             >
@@ -129,7 +129,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
                   router.push('/blog?id=9999');
                 }
               }}
-              className={`block py-2 transition-all text-right w-full ${
+              className={`block py-2 font-roundel transition-all text-right w-full ${
                 isActive('/blog') ? 'text-black' : 'text-black/40 hover:text-black'
               }`}
             >
@@ -172,7 +172,7 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
           <Link
             href="/ancestry"
             onClick={handleNavClick}
-            className={`block py-2 transition-all ${
+            className={`block py-2 font-roundel transition-all ${
               isActive('/ancestry') ? 'text-black' : 'text-black/40 hover:text-black'
             }`}
           >

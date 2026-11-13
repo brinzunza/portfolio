@@ -125,7 +125,7 @@ export default function Projects() {
 
   return (
     <div className="py-[25vh] px-8 md:px-16 scrollbar-hide">
-      <h1 className="text-2xl md:text-3xl font-mono mb-6">
+      <h1 className="text-2xl md:text-3xl font-roundel mb-6">
         {selectedProject.title}
       </h1>
 

@@ -75,10 +75,10 @@ const LandingPage: React.FC = () => {
             priority
           />
           <div className="flex flex-col justify-between" style={{ lineHeight: 1 }}>
-            <h1 className="text-5xl md:text-7xl font-mono" style={{ lineHeight: 1 }}>
+            <h1 className="text-5xl md:text-7xl font-roundel" style={{ lineHeight: 1 }}>
               bruno
             </h1>
-            <h1 className="text-5xl md:text-7xl font-mono" style={{ lineHeight: 1 }}>
+            <h1 className="text-5xl md:text-7xl font-roundel" style={{ lineHeight: 1 }}>
               inzunza
             </h1>
           </div>

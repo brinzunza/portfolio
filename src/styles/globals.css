@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Roundel Sans';
+  src: url('/fonts/RoundelSans-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   body {
     margin: 0;
@@ -16,9 +24,13 @@
     font-family: var(--font-jetbrains-mono), monospace;
   }
 
+  h1 {
+    font-family: 'Roundel Sans', sans-serif;
+  }
+
   ::selection {
-    background-color: #dc2626;
-    color: #ffffff;
+    background-color: transparent;
+    color: #dc2626;
   }
 
   * {
@@ -35,6 +47,10 @@
 @layer components {
   .font-mono {
     font-family: var(--font-jetbrains-mono), monospace;
+  }
+
+  .font-roundel {
+    font-family: 'Roundel Sans', sans-serif;
   }
 
   .font-sans {

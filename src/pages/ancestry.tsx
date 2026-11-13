@@ -102,7 +102,7 @@ const Ancestry: React.FC = () => {
   return (
     <div className="py-[25vh] px-8 md:px-16">
       <div className="max-w-2xl">
-      <h1 className="text-2xl font-mono mb-1.5">{t('sidebar.ancestry')}</h1>
+      <h1 className="text-2xl font-roundel mb-1.5">{t('sidebar.ancestry')}</h1>
       <p className="text-sm text-black/50 mb-6 max-w-md leading-relaxed">
         My DNA ethnicity estimate, grouped by country. Updated October 2026.
       </p>
