@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { dotMap, dotMapViewBox } from '../data/ancestryMap';
 
 interface Region {
   name: string;
@@ -8,6 +9,7 @@ interface Region {
 
 interface Category {
   name: string;
+  mapKey: string;
   color: string;
   regions: Region[];
 }
@@ -15,6 +17,7 @@ interface Category {
 const categories: Category[] = [
   {
     name: 'Iberian Peninsula',
+    mapKey: 'iberia',
     color: '#b5573b',
     regions: [
       { name: 'Northern Spain', percent: 25 },
@@ -26,6 +29,7 @@ const categories: Category[] = [
   },
   {
     name: 'Indigenous Americas',
+    mapKey: 'indig',
     color: '#3f7d6b',
     regions: [
       { name: 'Chihuahuan Desert & Sierras (Mexico)', percent: 8 },
@@ -40,22 +44,28 @@ const categories: Category[] = [
   },
   {
     name: 'Jewish',
+    mapKey: 'jewish',
     color: '#c19a3b',
     regions: [{ name: 'Sephardic Jews in Northern Africa', percent: 2 }],
   },
   {
     name: 'England',
+    mapKey: 'eng',
     color: '#5b7aa6',
     regions: [{ name: 'Southeastern England', percent: 1 }],
   },
   {
     name: 'Western Europe',
+    mapKey: 'weu',
     color: '#8a6fa8',
     regions: [{ name: 'Belgium', percent: 1 }],
   },
 ];
 
 const total = (c: Category) => c.regions.reduce((sum, r) => sum + r.percent, 0);
+const maxTotal = Math.max(...categories.map(total));
+// Dot intensity grows with the group's share (square root keeps the 1-2% groups visible).
+const intensity = (c: Category) => 0.4 + 0.6 * Math.sqrt(total(c) / maxTotal);
 const maxRegion = Math.max(...categories.flatMap((c) => c.regions.map((r) => r.percent)));
 
 const Ancestry: React.FC = () => {
@@ -71,13 +81,33 @@ const Ancestry: React.FC = () => {
   return (
     <div className="py-[25vh] px-8 md:px-16">
       <div className="max-w-2xl">
-      <h1 className="text-2xl font-mono mb-2">{t('sidebar.ancestry')}</h1>
-      <p className="text-sm text-black/50 mb-10 max-w-md leading-relaxed">
+      <h1 className="text-2xl font-mono mb-1.5">{t('sidebar.ancestry')}</h1>
+      <p className="text-sm text-black/50 mb-6 max-w-md leading-relaxed">
         My DNA ethnicity estimate, grouped by region. Updated October 2026.
       </p>
 
+      {/* Dot-matrix map */}
+      <svg viewBox={dotMapViewBox} className="w-full mb-1.5" role="img" aria-label="World map where each dot is colored by ancestry group">
+        <path d={dotMap.other} stroke="rgba(0,0,0,0.2)" strokeWidth={2.3} strokeLinecap="round" fill="none" />
+        {categories.map((c) => (
+          <path
+            key={c.name}
+            d={dotMap[c.mapKey]}
+            stroke={c.color}
+            strokeWidth={3.5}
+            strokeLinecap="round"
+            fill="none"
+            style={{
+              opacity: shown ? intensity(c) * (active && active !== c.name ? 0.3 : 1) : 0,
+              transition: 'opacity 600ms ease',
+            }}
+          />
+        ))}
+      </svg>
+      <p className="text-[11px] text-black/40 mb-4">Darker dots mean a larger share of my ancestry.</p>
+
       {/* Overview bar */}
-      <div className="flex h-3 w-full overflow-hidden rounded-full bg-black/5 mb-5">
+      <div className="flex h-2 w-full overflow-hidden rounded-full bg-black/5 mb-4">
         {categories.map((c) => (
           <div
             key={c.name}
@@ -94,7 +124,7 @@ const Ancestry: React.FC = () => {
       </div>
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-x-6 gap-y-2 mb-14 text-xs">
+      <div className="flex flex-wrap gap-x-5 gap-y-1.5 mb-9 text-xs">
         {categories.map((c) => (
           <button
             key={c.name}
@@ -110,7 +140,7 @@ const Ancestry: React.FC = () => {
       </div>
 
       {/* Breakdown */}
-      <div className="space-y-12">
+      <div className="space-y-8">
         {categories.map((c) => (
           <section
             key={c.name}
@@ -118,18 +148,18 @@ const Ancestry: React.FC = () => {
             onMouseLeave={() => setActive(null)}
             style={{ opacity: active && active !== c.name ? 0.4 : 1, transition: 'opacity 200ms ease' }}
           >
-            <div className="flex items-baseline justify-between mb-4">
+            <div className="flex items-baseline justify-between mb-2.5">
               <h2 className="text-xs font-mono text-black/40">{c.name}</h2>
               <span className="text-xs font-mono text-black/40">{total(c)}%</span>
             </div>
-            <ul className="space-y-3">
+            <ul className="space-y-2">
               {c.regions.map((r, i) => (
                 <li key={r.name}>
-                  <div className="flex items-baseline justify-between gap-4 mb-1.5">
-                    <span className="text-sm">{r.name}</span>
-                    <span className="text-sm font-mono tabular-nums">{r.percent}%</span>
+                  <div className="flex items-baseline justify-between gap-4 mb-1">
+                    <span className="text-[13px]">{r.name}</span>
+                    <span className="text-[13px] font-mono tabular-nums">{r.percent}%</span>
                   </div>
-                  <div className="h-1 w-full rounded-full bg-black/5 overflow-hidden">
+                  <div className="h-[3px] w-full rounded-full bg-black/5 overflow-hidden">
                     <div
                       className="h-full rounded-full"
                       style={{
