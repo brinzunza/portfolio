@@ -4,6 +4,7 @@ import { dotMap, dotMapViewBox } from '../data/ancestryMap';
 
 interface Region {
   name: string;
+  country: string;
   percent: number;
 }
 
@@ -20,11 +21,11 @@ const categories: Category[] = [
     mapKey: 'iberia',
     color: '#b5573b',
     regions: [
-      { name: 'Northern Spain', percent: 25 },
-      { name: 'Canary Islands', percent: 19 },
-      { name: 'Spain', percent: 17 },
-      { name: 'Basque', percent: 8 },
-      { name: 'Madeira', percent: 2 },
+      { name: 'Northern Spain', country: 'Spain', percent: 25 },
+      { name: 'Canary Islands', country: 'Spain', percent: 19 },
+      { name: 'Spain', country: 'Spain', percent: 17 },
+      { name: 'Basque', country: 'Spain', percent: 8 },
+      { name: 'Madeira', country: 'Portugal', percent: 2 },
     ],
   },
   {
@@ -32,35 +33,55 @@ const categories: Category[] = [
     mapKey: 'indig',
     color: '#3f7d6b',
     regions: [
-      { name: 'Chihuahuan Desert & Sierras (Mexico)', percent: 8 },
-      { name: 'Centro-Occidente—Norte (Mexico)', percent: 5 },
-      { name: 'Gulf of California (Mexico)', percent: 5 },
-      { name: 'Centro-Occidente—Sur (Mexico)', percent: 2 },
-      { name: 'Centro-Oriente Highlands (Mexico)', percent: 2 },
-      { name: 'Jalisco Highlands (Mexico)', percent: 1 },
-      { name: 'Noreste & Rio Grande (Mexico & USA)', percent: 1 },
-      { name: 'Southern Sierra & Tehuantepec (Mexico)', percent: 1 },
+      { name: 'Chihuahuan Desert & Sierras (Mexico)', country: 'Mexico', percent: 8 },
+      { name: 'Centro-Occidente—Norte (Mexico)', country: 'Mexico', percent: 5 },
+      { name: 'Gulf of California (Mexico)', country: 'Mexico', percent: 5 },
+      { name: 'Centro-Occidente—Sur (Mexico)', country: 'Mexico', percent: 2 },
+      { name: 'Centro-Oriente Highlands (Mexico)', country: 'Mexico', percent: 2 },
+      { name: 'Jalisco Highlands (Mexico)', country: 'Mexico', percent: 1 },
+      { name: 'Noreste & Rio Grande (Mexico & USA)', country: 'Mexico', percent: 1 },
+      { name: 'Southern Sierra & Tehuantepec (Mexico)', country: 'Mexico', percent: 1 },
     ],
   },
   {
     name: 'Jewish',
     mapKey: 'jewish',
     color: '#c19a3b',
-    regions: [{ name: 'Sephardic Jews in Northern Africa', percent: 2 }],
+    regions: [{ name: 'Sephardic Jews in Northern Africa', country: 'Northern Africa', percent: 2 }],
   },
   {
     name: 'England',
     mapKey: 'eng',
     color: '#5b7aa6',
-    regions: [{ name: 'Southeastern England', percent: 1 }],
+    regions: [{ name: 'Southeastern England', country: 'England', percent: 1 }],
   },
   {
     name: 'Western Europe',
     mapKey: 'weu',
     color: '#8a6fa8',
-    regions: [{ name: 'Belgium', percent: 1 }],
+    regions: [{ name: 'Belgium', country: 'Belgium', percent: 1 }],
   },
 ];
+
+interface Country {
+  name: string;
+  category: Category;
+  regions: Region[];
+}
+
+// Regroup the regions by country, biggest share first.
+const countries: Country[] = categories
+  .flatMap((c) => c.regions.map((r) => ({ c, r })))
+  .reduce<Country[]>((acc, { c, r }) => {
+    const found = acc.find((x) => x.name === r.country);
+    if (found) found.regions.push(r);
+    else acc.push({ name: r.country, category: c, regions: [r] });
+    return acc;
+  }, [])
+  .sort((a, b) => b.regions.reduce((n, r) => n + r.percent, 0) - a.regions.reduce((n, r) => n + r.percent, 0));
+
+const countryTotal = (x: Country) => x.regions.reduce((sum, r) => sum + r.percent, 0);
+const shortName = (name: string) => name.replace(/ \(Mexico\)$/, '');
 
 const total = (c: Category) => c.regions.reduce((sum, r) => sum + r.percent, 0);
 const maxTotal = Math.max(...categories.map(total));
@@ -83,7 +104,7 @@ const Ancestry: React.FC = () => {
       <div className="max-w-2xl">
       <h1 className="text-2xl font-mono mb-1.5">{t('sidebar.ancestry')}</h1>
       <p className="text-sm text-black/50 mb-6 max-w-md leading-relaxed">
-        My DNA ethnicity estimate, grouped by region. Updated October 2026.
+        My DNA ethnicity estimate, grouped by country. Updated October 2026.
       </p>
 
       {/* Dot-matrix map */}
@@ -141,22 +162,22 @@ const Ancestry: React.FC = () => {
 
       {/* Breakdown */}
       <div className="space-y-8">
-        {categories.map((c) => (
+        {countries.map((x) => (
           <section
-            key={c.name}
-            onMouseEnter={() => setActive(c.name)}
+            key={x.name}
+            onMouseEnter={() => setActive(x.category.name)}
             onMouseLeave={() => setActive(null)}
-            style={{ opacity: active && active !== c.name ? 0.4 : 1, transition: 'opacity 200ms ease' }}
+            style={{ opacity: active && active !== x.category.name ? 0.4 : 1, transition: 'opacity 200ms ease' }}
           >
             <div className="flex items-baseline justify-between mb-2.5">
-              <h2 className="text-xs font-mono text-black/40">{c.name}</h2>
-              <span className="text-xs font-mono text-black/40">{total(c)}%</span>
+              <h2 className="text-xs font-mono text-black/40">{x.name}</h2>
+              <span className="text-xs font-mono text-black/40">{countryTotal(x)}%</span>
             </div>
             <ul className="space-y-2">
-              {c.regions.map((r, i) => (
+              {x.regions.map((r, i) => (
                 <li key={r.name}>
                   <div className="flex items-baseline justify-between gap-4 mb-1">
-                    <span className="text-[13px]">{r.name}</span>
+                    <span className="text-[13px]">{shortName(r.name)}</span>
                     <span className="text-[13px] font-mono tabular-nums">{r.percent}%</span>
                   </div>
                   <div className="h-[3px] w-full rounded-full bg-black/5 overflow-hidden">
@@ -164,7 +185,7 @@ const Ancestry: React.FC = () => {
                       className="h-full rounded-full"
                       style={{
                         width: shown ? `${(r.percent / maxRegion) * 100}%` : '0%',
-                        backgroundColor: c.color,
+                        backgroundColor: x.category.color,
                         transition: `width 900ms cubic-bezier(.2,.7,.2,1) ${i * 60}ms`,
                       }}
                     />
