@@ -28,6 +28,7 @@ const translations: Record<Language, Record<string, string>> = {
     'sidebar.home': 'home',
     'sidebar.projects': 'projects',
     'sidebar.writing': 'thoughts',
+    'sidebar.ancestry': 'ancestry',
     'sidebar.seeMore': 'see more...',
   },
   es: {
@@ -47,6 +48,7 @@ const translations: Record<Language, Record<string, string>> = {
     'sidebar.home': 'inicio',
     'sidebar.projects': 'proyectos',
     'sidebar.writing': 'pensamientos',
+    'sidebar.ancestry': 'ascendencia',
     'sidebar.seeMore': 'ver más...',
   }
 };

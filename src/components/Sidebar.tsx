@@ -167,6 +167,18 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
             )}
           </div>
         </li>
+
+        <li>
+          <Link
+            href="/ancestry"
+            onClick={handleNavClick}
+            className={`block py-2 transition-all ${
+              isActive('/ancestry') ? 'text-black' : 'text-black/40 hover:text-black'
+            }`}
+          >
+            {t('sidebar.ancestry')}
+          </Link>
+        </li>
       </ul>
     </nav>
   );
