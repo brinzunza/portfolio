@@ -46,6 +46,7 @@ const LandingPage: React.FC = () => {
     { id: '4', title: 'you are wrong' },
     { id: '5', title: 'brain' },
     { id: '6', title: 'synthetic market data api' },
+    { id: '7', title: 'whosaid' },
   ];
 
   const mostRecentProject = projects

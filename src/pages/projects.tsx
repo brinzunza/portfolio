@@ -18,6 +18,14 @@ export const projects = [
     readmeFile: '/overview/overview.md',
   },
   {
+    id: '7',
+    title: 'whosaid',
+    description: 'Built an offline tool that places captions under the face of whoever is speaking and follows them around the frame.',
+    code: 'https://github.com/brinzunza/whosaid',
+    tech: ['python', 'cv', 'asr'],
+    readmeFile: '/whosaid/whosaidreadme.md',
+  },
+  {
     id: '1',
     title: 'bruninvestor algorithmic trading',
     description: 'Designed and implemented an algorithmic trading system. Fully backtested with custom strategies.',
@@ -79,7 +87,7 @@ export default function Projects() {
         if (project) return project;
       }
     }
-    return projects[0];
+    return projects.find(p => p.id === '9999') || projects[0];
   };
 
   const [selectedProject, setSelectedProject] = useState(getInitialProject());
