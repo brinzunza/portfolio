@@ -2,6 +2,12 @@ Subtitles tell you what was said, but never who said it. Watch three people talk
 
 Captions were designed for a time when putting a line of text at the bottom was the best anyone could do. With how far audio and vision models have come, it is hard not to try something better. So I built [__whosaid__](https://github.com/brinzunza/whosaid): captions that appear directly under the face of whoever is speaking, and follow that person around the frame as they move. Your eyes stay on the people, and the words arrive where the voice comes from.
 
+<div style="margin-bottom: 20px;">
+  <video src="/whosaid/side_by_side.mp4" controls playsinline preload="metadata" width="100%" style="display: block;"></video>
+</div>
+
+*The original clip on the left, the same clip captioned by whosaid on the right. Each line sits under whoever says it. The clip is third-party content used only to illustrate the tool.*
+
 The idea is easy to say and surprisingly hard to do. It breaks into three jobs: hearing what was said, working out who said it, and putting the words in the right place at the right moment.
 
 **Hearing** is the part that listens and returns accurate text, in any language. The difficulty is everything real people do to speech. They have accents, they mumble, they talk fast, they talk over each other, and there is music and a crowd behind them. The overlap is the one that matters most. When two people speak at once, a normal transcription gives you a blended mess that belongs to nobody, so the voices have to be pulled apart before anything can be written down.
