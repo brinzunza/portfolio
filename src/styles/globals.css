@@ -18,6 +18,16 @@
     -moz-osx-font-smoothing: grayscale;
     background-color: #ffffff;
     color: #000000;
+    overflow-x: hidden;
+  }
+
+  img, video, svg {
+    max-width: 100%;
+  }
+
+  pre, table {
+    max-width: 100%;
+    overflow-x: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {

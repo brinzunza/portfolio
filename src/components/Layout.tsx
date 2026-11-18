@@ -70,7 +70,7 @@ export default function Layout({ children, projects }: LayoutProps) {
       </button>
 
       {/* Container for sidebar and content */}
-      <div className="flex w-full max-w-7xl h-screen mt-[-10vh] mr-[10%] relative">
+      <div className="flex w-full max-w-7xl h-screen mt-[-10vh] md:mr-[10%] relative min-w-0">
         {/* Sidebar - 1/3 of screen */}
         <aside
           className={`
@@ -83,7 +83,7 @@ export default function Layout({ children, projects }: LayoutProps) {
         </aside>
 
         {/* Main content - 2/3 of screen */}
-        <main ref={mainRef} className="w-full md:w-2/3 h-screen overflow-y-auto relative">
+        <main ref={mainRef} className="w-full md:w-2/3 h-screen overflow-y-auto overflow-x-hidden relative">
           {children}
 
           {/* Scroll indicator arrow */}

@@ -169,9 +169,9 @@ const Ancestry: React.FC = () => {
             onMouseLeave={() => setActive(null)}
             style={{ opacity: active && active !== x.category.name ? 0.4 : 1, transition: 'opacity 200ms ease' }}
           >
-            <div className="flex items-baseline justify-between mb-2.5">
-              <h2 className="text-xs font-mono text-black/40">{x.name}</h2>
-              <span className="text-xs font-mono text-black/40">{countryTotal(x)}%</span>
+            <div className="flex items-baseline justify-between mb-3 pb-2 border-b border-black/10" style={{ borderBottomColor: 'rgba(0,0,0,0.1)' }}>
+              <h2 className="text-3xl md:text-4xl font-roundel text-black">{x.name}</h2>
+              <span className="text-3xl md:text-4xl font-roundel text-black tabular-nums">{countryTotal(x)}%</span>
             </div>
             <ul className="space-y-2">
               {x.regions.map((r, i) => (

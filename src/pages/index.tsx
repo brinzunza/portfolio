@@ -91,8 +91,8 @@ const LandingPage: React.FC = () => {
           </p>
 
           {/* Social/Contact links and Language toggle */}
-          <div className="flex justify-between items-center gap-6 text-sm">
-            <div className="flex gap-6">
+          <div className="flex flex-wrap justify-between items-center gap-x-6 gap-y-4 text-sm">
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
               <a
                 href="https://github.com/brinzunza"
                 target="_blank"
