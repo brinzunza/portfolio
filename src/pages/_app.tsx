@@ -4,6 +4,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
 import { ReadingProvider } from '../context/ReadingContext';
 import { LanguageProvider } from '../context/LanguageContext';
 import Layout from '../components/Layout';
+import PageTransition from '../components/PageTransition';
 import { projects } from './projects';
 
 const inter = Inter({
@@ -27,7 +28,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <LanguageProvider>
         <ReadingProvider>
           <Layout projects={projectsData}>
-            <Component {...pageProps} />
+            <PageTransition>
+              <Component {...pageProps} />
+            </PageTransition>
           </Layout>
         </ReadingProvider>
       </LanguageProvider>
