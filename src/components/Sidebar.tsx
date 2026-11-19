@@ -170,6 +170,18 @@ export default function Sidebar({ projects = [], onMobileClose }: SidebarProps) 
 
         <li>
           <Link
+            href="/research"
+            onClick={handleNavClick}
+            className={`block py-2 transition-all ${
+              isActive('/research') ? 'text-black' : 'text-black/40 hover:text-black'
+            }`}
+          >
+            {t('sidebar.research')}
+          </Link>
+        </li>
+
+        <li>
+          <Link
             href="/ancestry"
             onClick={handleNavClick}
             className={`block py-2 font-roundel transition-all ${
